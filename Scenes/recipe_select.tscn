@@ -1,3 +1,35 @@
-[gd_scene format=3 uid="uid://cgybpvsfp57pd"]
+[gd_scene load_steps=4 format=3 uid="uid://cgybpvsfp57pd"]
 
-[node name="TestScene" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://y8k58y7o7ej3" path="res://Assets/walter_white.jpg" id="1_dk4w6"]
+[ext_resource type="Script" uid="uid://q7kw7t1yw52" path="res://Scenes/ready_to_cook.gd" id="2_xira4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lblv1"]
+diffuse_texture = ExtResource("1_dk4w6")
+
+[node name="RecipeSelectScene" type="Node2D"]
+
+[node name="Ready To Cook" type="Node2D" parent="."]
+position = Vector2(899, 540)
+
+[node name="TextureButton" type="TextureButton" parent="Ready To Cook"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 224.0
+offset_bottom = 89.0
+texture_normal = SubResource("CanvasTexture_lblv1")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_xira4")
+
+[node name="Label" type="Label" parent="Ready To Cook/TextureButton"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 219.0
+offset_bottom = 84.0
+text = "Ready To Cook"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Ready To Cook/TextureButton" to="Ready To Cook/TextureButton" method="_on_pressed"]

@@ -1,0 +1,53 @@
+{
+	"bacon_eggs_toast": {
+		"ingredients":[
+			"bacon",
+			"egg",
+			"bread"
+		],
+		"directions":[
+			"Step 1: Fry the bacon.",
+			"Step 2: Fry the egg.",
+			"Step 3: Toast the bread."
+		],
+		"cook_conditions":[
+			"STOVED",
+			"STOVED",
+			"TOASTED"
+		],
+	},
+	"salad": {
+		"ingredients":[
+			"lettuce",
+			"tomato",
+			"quality_meat",
+			"dressing",
+			"carrots"
+		],
+		"directions":[
+			"Step 1: Place the lettuce in the bowl.",
+			"Step 2: Chop the tomato.",
+			"Step 3: Fry the meat.",
+			"Step 4: Place the dressing in the bowl.",
+			"Step 5: Chop the carrots."
+		],
+		"cook_conditions":[
+			"BOWL",
+			"CHOPPED",
+			"STOVED",
+			"BOWL",
+			"CHOPPED"
+		]
+	},
+	"canned_soup": {
+		"ingredients":[
+			"canned_soup",
+		],
+		"directions":[
+			"Step 1: Boil the soup."
+		],
+		"cook_conditions":[
+			"STOVED"
+		]
+	}
+}
