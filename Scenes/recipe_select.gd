@@ -50,9 +50,9 @@ func _ready() -> void:
 	cur_day 			= 0
 	
 	setup_new_day(
-		["bacon_eggs_toast", "bacon_eggs_toast"],
-		["salad"],
-		["canned_soup"],
+		["bacon_eggs_toast", "salad", "canned_soup"],
+		["bacon_eggs_toast", "salad", "canned_soup"],
+		["bacon_eggs_toast", "salad", "canned_soup"],
 		"This is a CRAZY day! Good luck!",
 		-10,
 		-15,
@@ -114,9 +114,9 @@ func end_day():
 	# Else, keep going!
 	else:
 		setup_new_day(
-		["bacon_eggs_toast", "bacon_eggs_toast"],
-		["salad"],
-		["canned_soup"],
+		["bacon_eggs_toast", "salad", "canned_soup"],
+		["bacon_eggs_toast", "salad", "canned_soup"],
+		["bacon_eggs_toast", "salad", "canned_soup"],
 		"This is another CRAZY day! Good luck!",
 		-10,
 		-15,
