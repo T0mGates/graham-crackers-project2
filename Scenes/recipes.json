@@ -15,6 +15,12 @@
 			"STOVED",
 			"TOASTED"
 		],
+		"path_to_img": "res://Assets/bacon_temp.png",
+		"proper_name": "Bacon Eggs & Toast",
+		"cost": 20,
+		"health_diff": 10,
+		"energy_diff": -10,
+		"happiness_diff": 5
 	},
 	"salad": {
 		"ingredients":[
@@ -37,7 +43,13 @@
 			"STOVED",
 			"BOWL",
 			"CHOPPED"
-		]
+		],
+		"path_to_img": "res://Assets/lettuce_temp.png",
+		"proper_name": "Bacon Eggs & Toast",
+		"cost": 200,
+		"health_diff": 5,
+		"energy_diff": 15,
+		"happiness_diff": 10
 	},
 	"canned_soup": {
 		"ingredients":[
@@ -48,6 +60,12 @@
 		],
 		"cook_conditions":[
 			"STOVED"
-		]
+		],
+		"path_to_img": "res://Assets/soup_temp.png",
+		"proper_name": "Canned Soup",
+		"cost": 5,
+		"health_diff": -5,
+		"energy_diff": -5,
+		"happiness_diff": -5
 	}
 }

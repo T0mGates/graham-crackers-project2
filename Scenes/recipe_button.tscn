@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://cabaak67as4g7"]
+
+[ext_resource type="Script" uid="uid://llkal57nf7jl" path="res://Scenes/recipe_button.gd" id="1_0x8w7"]
+[ext_resource type="Script" uid="uid://bm2l4ymxk7efv" path="res://Scenes/select_control.gd" id="2_o2d84"]
+[ext_resource type="Texture2D" uid="uid://dmpxfi5qjxrxc" path="res://icon.svg" id="3_4w71g"]
+
+[node name="RecipeButton" type="Node2D"]
+script = ExtResource("1_0x8w7")
+
+[node name="SelectControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 140.0
+offset_bottom = 60.0
+script = ExtResource("2_o2d84")
+
+[node name="SelectBtn" type="CheckButton" parent="SelectControl"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="RecipeName" type="Label" parent="SelectControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = -5
+theme_override_font_sizes/font_size = 12
+text = "Some Recipe Name Hahaha"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RecipeImg" type="Sprite2D" parent="SelectControl"]
+position = Vector2(29, 43)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_4w71g")
+
+[node name="InfoText" type="Node2D" parent="."]
+position = Vector2(0, 62)
+
+[node name="Label" type="Label" parent="InfoText"]
+offset_right = 140.0
+offset_bottom = 75.0
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 10
+text = "This is some stuff that'll happen"
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="SelectControl" to="SelectControl" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SelectControl" to="SelectControl" method="_on_mouse_exited"]
