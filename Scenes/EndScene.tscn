@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxccxnv70hvnp"]
+
+[ext_resource type="Texture2D" uid="uid://5dnf885hsl8k" path="res://Assets/delete_later.PNG" id="1_ryui2"]
+[ext_resource type="Script" uid="uid://dykx75mmeq1iw" path="res://Scenes/dud_button.gd" id="2_fxskr"]
+
+[node name="EndScene" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 648.0
+texture = ExtResource("1_ryui2")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 489.0
+offset_top = 271.0
+offset_right = 688.0
+offset_bottom = 325.0
+text = "Back to Recipe
+(Delete this button later)"
+script = ExtResource("2_fxskr")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

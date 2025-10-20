@@ -5,7 +5,7 @@ class_name Ingredient extends Area2D
 var _ing_name: 			String 		 		= ""
 var _ing_id: 			int 			 	= 0
 var _starting_pos: 		Vector2 	 		= Vector2(0, 0)
-var movement_offset: 	Vector2 			= Vector2(0, 0)
+var _movement_offset: 	Vector2 			= Vector2(0, 0)
 
 # Child objects of an ingredient
 var tex: 				Sprite2D			= Sprite2D.new()
@@ -30,7 +30,7 @@ func _ready() -> void:
 	collision.shape 				 = rect
 
 	# Adding the collision shape
-	collision.debug_color			 = Color(0, 0, 0, 0.5)
+	#collision.debug_color			 = Color(0, 0, 0, 0.5)
 	collision.global_position 		 = self.global_position
 	add_child(collision)
 
@@ -50,14 +50,13 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 
 			# Checking if the object is picked up or not
-			if event.is_pressed():
+			if event.is_pressed() and picked_up_name != "":
 				picked_up = true
-				print("Picked Up")
 			else:
 				picked_up = false
 
 			# Setting the drag offset
-			movement_offset   = get_global_mouse_position() - self.global_position
+			_movement_offset   = get_global_mouse_position() - self.global_position
 
 			# If the item is picked up make sure it always appears on top
 			if picked_up:
@@ -70,7 +69,7 @@ func _process(_delta: float) -> void:
 
 	# If the ingredient is picked up then move it by its calculated offset
 	if picked_up and picked_up_name == self.name:
-		self.global_position = get_global_mouse_position() - self.movement_offset
+		self.global_position = get_global_mouse_position() - self._movement_offset
 
 # Getter for the ingredient name
 func get_ing_name() -> String:
@@ -133,7 +132,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 	# If the body is an appliance then change its colour
 	if body.is_in_group("is_appliance"):
-		body.modulate 		  = Color(0.0, 1.0, 0.0, 0.5)
+		body.modulate = Color(0.0, 1.0, 0.0, 0.5)
 		appliance_ref = body
 
 # This function triggers if an ingredient exits an appliance
@@ -141,5 +140,5 @@ func _on_body_exited(body: Node2D) -> void:
 
 	# If the body is an appliance then revert its colour
 	if body.is_in_group("is_appliance"):
-		body.modulate 		  = Color(1.0, 1.0, 1.0, 1.0)
+		body.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		appliance_ref = null

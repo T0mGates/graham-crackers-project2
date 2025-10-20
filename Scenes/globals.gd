@@ -15,6 +15,9 @@ var picked_up: bool		   	   = false
 var is_at_appliance: bool	   = false
 var appliance_ref			   = null
 
+# Timer value
+var timer_time: float		   = 120.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

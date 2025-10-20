@@ -33,14 +33,14 @@
 		"directions":[
 			"Step 1: Place the lettuce in the bowl.",
 			"Step 2: Chop the tomato.",
-			"Step 3: Fry the meat.",
+			"Step 3: Bake the meat.",
 			"Step 4: Place the dressing in the bowl.",
 			"Step 5: Chop the carrots."
 		],
 		"cook_conditions":[
 			"BOWL",
 			"CHOPPED",
-			"STOVED",
+			"OVENED",
 			"BOWL",
 			"CHOPPED"
 		],
