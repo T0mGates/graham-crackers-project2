@@ -14,9 +14,12 @@ var rect: 				RectangleShape2D 	= RectangleShape2D.new()
 
 # Values to help with movement
 var picked_up: 			bool				= false
-var is_at_appliance: 	bool				= false
+var is_checked: 		bool				= false
 var picked_up_name:		String				= ""
-var appliance_ref
+var appliance_ref							= null
+
+# Signal to check the ingredient
+signal check_ingredient(ingredient, appliance)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -70,6 +73,12 @@ func _process(_delta: float) -> void:
 	# If the ingredient is picked up then move it by its calculated offset
 	if picked_up and picked_up_name == self.name:
 		self.global_position = get_global_mouse_position() - self._movement_offset
+		print(self.global_position)
+
+	# If the ingredient is dropped on the appliance check if it is correct
+	if appliance_ref != null and not picked_up:
+		if appliance_ref.is_in_group("is_appliance"):
+			check_ingredient.emit(self, appliance_ref)
 
 # Getter for the ingredient name
 func get_ing_name() -> String:
@@ -94,6 +103,7 @@ func set_start_pos(start: Vector2) -> void:
 # Function that returns the ingredient to its starting position
 func to_start_pos() -> void:
 	self.global_position = _starting_pos
+	is_checked			 = false
 
 # Setter for the ingredient sprite
 func set_sprite(sprite_image_name: String) -> void:
