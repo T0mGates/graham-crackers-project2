@@ -5,7 +5,7 @@ var _collision: 		CollisionShape2D	= CollisionShape2D.new()
 var _appliance_sprite: 	Sprite2D			= Sprite2D.new()
 
 # Appliance values
-var _app_usage: String = "BOWLED"
+var _app_usage: String = "BOWL"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

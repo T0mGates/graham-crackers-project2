@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5p5umjf3lmhk"]
+[gd_scene load_steps=16 format=3 uid="uid://c5p5umjf3lmhk"]
 
 [ext_resource type="Script" uid="uid://dog815jgb8elm" path="res://Scenes/food_prep.gd" id="1_7fvax"]
 [ext_resource type="Script" uid="uid://ttarcykcrck1" path="res://Scenes/toaster.gd" id="2_oqc0h"]
@@ -18,6 +18,9 @@ size = Vector2(600, 600)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ogshp"]
 font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_2f0d5"]
+font_size = 24
 
 [node name="FoodPrepScene" type="Node2D"]
 script = ExtResource("1_7fvax")
@@ -88,7 +91,7 @@ texture = ExtResource("11_2f0d5")
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 60.0
 autostart = true
 script = ExtResource("12_2f0d5")
 
@@ -98,5 +101,36 @@ offset_top = 2.0
 offset_right = 1128.0
 offset_bottom = 33.0
 label_settings = SubResource("LabelSettings_ogshp")
+
+[node name="CompleteLabel" type="Label" parent="."]
+offset_left = 786.0
+offset_top = 70.0
+offset_right = 1120.0
+offset_bottom = 112.0
+text = "Meals Complete: 0/3"
+label_settings = SubResource("LabelSettings_2f0d5")
+
+[node name="MealLabel" type="Label" parent="."]
+offset_left = 787.0
+offset_top = 114.0
+offset_right = 1117.0
+offset_bottom = 156.0
+text = "Steps"
+label_settings = SubResource("LabelSettings_2f0d5")
+
+[node name="StepLabel" type="Label" parent="."]
+offset_left = 786.0
+offset_top = 158.0
+offset_right = 1117.0
+offset_bottom = 200.0
+text = "Step 1:"
+label_settings = SubResource("LabelSettings_2f0d5")
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 787.0
+offset_top = 202.0
+offset_right = 1118.0
+offset_bottom = 244.0
+label_settings = SubResource("LabelSettings_2f0d5")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
