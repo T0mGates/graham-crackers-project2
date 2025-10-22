@@ -1,5 +1,7 @@
 extends Node
 
+# FOR COOKING SCENE
+
 # The ingredients, cooking steps, and success conditions for each meal
 var breakfast 		   = {"ingredients":[], "directions":[], "cook_conditions":[]}
 var lunch 	  		   = {"ingredients":[], "directions":[], "cook_conditions":[]}
@@ -20,6 +22,17 @@ var timer_time: float		   = 60.0
 
 # Multiplier value
 var stat_multiplier: float	   = 1.0
+
+
+
+# FOR RECIPE SELECT SCREEN
+
+var cur_day: int				= 0
+var money: int 					= 500
+var cur_health: int 			= 100
+var cur_energy: int				= 100
+var cur_happiness: int 			= 100
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,0 +1,22 @@
+{
+	"1":
+		{
+			"breakfast_options": ["bacon_eggs_toast", "canned_soup"],
+			"lunch_options": ["salad", "canned_soup"],
+			"dinner_options": ["bacon_eggs_toast", "canned_soup", "salad"],
+			"scenario_description": "You are fighting for your life in the rec volleyball league tonight. You will be spending a lot of energy, and most definitely will lose, meaning you will also be less happy. Oh and also, losing isn't good for your health. Triple whammy buddy.",
+			"eod_health_diff": -20,
+			"eod_energy_diff": -25,
+			"eod_happiness_diff": -15
+		},
+	"2":
+		{
+			"breakfast_options": ["bacon_eggs_toast", "canned_soup"],
+			"lunch_options": ["salad", "canned_soup"],
+			"dinner_options": ["bacon_eggs_toast", "canned_soup", "salad"],
+			"scenario_description": "This is a different scenario",
+			"eod_health_diff": -20,
+			"eod_energy_diff": -25,
+			"eod_happiness_diff": -15
+		}
+}

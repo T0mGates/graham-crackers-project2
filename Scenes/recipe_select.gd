@@ -16,24 +16,17 @@ extends Node2D
 @onready var ready_to_cook: Node2D 		= $MainUI/ReadyToCook
 
 # Recipe options to spawn
-@onready var recipe_btn_scene 		= preload("res://Scenes/recipe_button.tscn")
+@onready var recipe_btn_scene 			= preload("res://Scenes/recipe_button.tscn")
 
 const RECIPE_BOOK_PATH: String 			= "res://Scenes/recipes.json"
+const DAY_DATA_PATH: String 			= "res://Scenes/days.json"
 
 # Resources
 var max_health 		= 100
-var cur_health 		= 100
 
 var max_energy 		= 100
-var cur_energy 		= 100
 
 var max_happiness 	= 100
-var cur_happiness 	= 100
-
-
-var money 			= 1000
-
-var cur_day			= 0
 
 # Array of instantiated scenes for each type of food
 var breakfast_options = []
@@ -47,20 +40,10 @@ var eod_happiness_diff = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cur_day 			= 0
-	
-	setup_new_day(
-		["bacon_eggs_toast", "salad", "canned_soup"],
-		["bacon_eggs_toast", "salad", "canned_soup"],
-		["bacon_eggs_toast", "salad", "canned_soup"],
-		"This is a CRAZY day! Good luck!",
-		-10,
-		-15,
-		-20
-	)
-	
+	setup_new_day()
 	update_ui()
 
+# Returns bool indicating if the player has lost
 func end_day():
 	# Get rid of old objects
 	for obj in breakfast_options:
@@ -85,73 +68,89 @@ func end_day():
 	
 	update_ui()
 	
+func end_game(win: bool, info: String):
+	print("You won: %s" % [str(win)])
+	day_text.text 			= info
+	scenario_text.text 		= ""
+	ready_to_cook.visible 	= false
+	update_ui()
+
+func update_ui():
+	health_bar.value 	= Globals.cur_health
+	energy_bar.value 	= Globals.cur_energy
+	happiness_bar.value = Globals.cur_happiness
+	money_label.text   	= "Money: " + str(Globals.money)
+	
+func setup_new_day():
+	print("IN READY")
+	Globals.cur_day 	+= 1
+	var day_data   		= Globals.get_json_from_file(DAY_DATA_PATH).get(str(Globals.cur_day), {})
+	
+	# First check if we lost
+	if check_if_game_over():
+		return
+	
+	# Get data for today, using Globals.cur_day
+	# If it doesn't exist, means we've finished the game!
+	if {} == day_data:
+		# Done!
+		end_game(true, "YOU WIN!")
+		return
+	
+	print(day_data)
+		
+	_start_new_day(	day_data["breakfast_options"], 
+					day_data["lunch_options"], 
+					day_data["dinner_options"],
+					day_data["scenario_description"],
+					day_data["eod_health_diff"],
+					day_data["eod_energy_diff"],
+					day_data["eod_happiness_diff"]
+				)
+				
+func check_if_game_over():
 	# Look for lose conditions
 	# For now just print, but we maybe want a game over screen?
-	var money_loss 		= money <= 0
-	var health_loss 	= cur_health <= 0
-	var energy_loss 	= cur_energy <= 0
-	var happiness_loss 	= cur_happiness <= 0
+	var money_loss 		= Globals.money <= 0
+	var health_loss 	= Globals.cur_health <= 0
+	var energy_loss 	= Globals.cur_energy <= 0
+	var happiness_loss 	= Globals.cur_happiness <= 0
 	var overall_loss	= money_loss or health_loss or energy_loss or happiness_loss
 	
 	# LOST
 	if overall_loss:
 		if money_loss:
 			end_game(false, "YOU LOST cus of money")
+			return true
 		
 		if health_loss:
 			end_game(false, "YOU LOST cus of health")
+			return true
 		
 		if energy_loss:
 			end_game(false, "YOU LOST cus of energy")
+			return true
 			
 		if happiness_loss:
 			end_game(false, "YOU LOST cus of happiness")
-	
-	# If it was day 3 and we haven't lost, you win!
-	elif 3 == cur_day:
-		end_game(true, "YOU WIN!")
-	
-	# Else, keep going!
-	else:
-		setup_new_day(
-		["bacon_eggs_toast", "salad", "canned_soup"],
-		["bacon_eggs_toast", "salad", "canned_soup"],
-		["bacon_eggs_toast", "salad", "canned_soup"],
-		"This is another CRAZY day! Good luck!",
-		-10,
-		-15,
-		-20
-	)
-	
-	update_ui()
-	
-func end_game(win: bool, info: String):
-	print("You won: %s" % [str(win)])
-	day_text.text 			= info
-	scenario_text.text 		= ""
-	ready_to_cook.visible 	= false
+			return true
+			
+	return false
 
-func update_ui():
-	health_bar.value 	= cur_health
-	energy_bar.value 	= cur_energy
-	happiness_bar.value = cur_happiness
-	money_label.text   	= "Money: " + str(money)
-	
 # Up to three options for each of breakfast, lunch and dinner
-func setup_new_day( breakfast_options_param: Array, 
-					lunch_options_param: Array, 
-					dinner_options_param: Array, 
-					scenario_description: String, 
-					eod_health_diff_param: int, 
-					eod_energy_diff_param: int, 
-					eod_happiness_diff_param: int
+func _start_new_day(	breakfast_options_param: Array, 
+						lunch_options_param: Array, 
+						dinner_options_param: Array, 
+						scenario_description: String, 
+						eod_health_diff_param: int, 
+						eod_energy_diff_param: int, 
+						eod_happiness_diff_param: int
 					):
 						ready_to_cook.visible 	= false
 						
 						breakfast_options   	= []
 						lunch_options       	= []
 						dinner_options      	= []
-						cur_day 				+= 1
 						
 						# BREAKFAST
 						var pos_to_set				= breakfast_node.position
@@ -204,7 +203,7 @@ func setup_new_day( breakfast_options_param: Array,
 							
 							num_loops 					+= 1
 						
-						day_text.text 		= "Day " + str(cur_day)
+						day_text.text 		= "Day " + str(Globals.cur_day)
 						scenario_text.text 	= scenario_description
 						
 						eod_health_diff 	= eod_health_diff_param * max(0.2, Globals.stat_multiplier)
@@ -278,31 +277,31 @@ func get_chosen_dinner_name() -> String:
 	return chosen_dinner
 
 func add_to_health(diff: int):
-	print("In add_to_health with cur_health: %d and diff: %d" % [cur_health, diff])
+	print("In add_to_health with cur_health: %d and diff: %d" % [Globals.cur_health, diff])
 	
 	# Keep cur_health between 0 and max val
-	cur_health = clamp(cur_health + diff, 0, max_health)
+	Globals.cur_health = clamp(Globals.cur_health + diff, 0, max_health)
 	update_ui()
 	
 func add_to_energy(diff: int):
-	print("In add_to_energy with cur_energy: %d and diff: %d" % [cur_energy, diff])
+	print("In add_to_energy with cur_energy: %d and diff: %d" % [Globals.cur_energy, diff])
 	
 	# Keep cur_energy between 0 and max val
-	cur_energy = clamp(cur_energy + diff, 0, max_energy)
+	Globals.cur_energy = clamp(Globals.cur_energy + diff, 0, max_energy)
 	update_ui()
 	
 func add_to_happiness(diff: int):
-	print("In add_to_happiness with cur_happiness: %d and diff: %d" % [cur_happiness, diff])
+	print("In add_to_happiness with cur_happiness: %d and diff: %d" % [Globals.cur_happiness, diff])
 	
 	# Keep cur_happiness between 0 and max val
-	cur_happiness = clamp(cur_happiness + diff, 0, max_happiness)
+	Globals.cur_happiness = clamp(Globals.cur_happiness + diff, 0, max_happiness)
 	update_ui()
 
 func add_to_money(diff: int):
-	print("In add_to_money with money: %d and diff: %d" % [money, diff])
+	print("In add_to_money with money: %d and diff: %d" % [Globals.money, diff])
 	
 	# Keep money above -1
-	money = max(money + diff, 0)
+	Globals.money = max(Globals.money + diff, 0)
 	update_ui()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

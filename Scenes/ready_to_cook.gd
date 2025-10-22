@@ -25,7 +25,12 @@ func set_meals(breakfast: String, lunch: String, dinner: String):
 # Called when the pressed signal is received for this button
 func _on_pressed() -> void:
 	# Do the end of day updates
-	recipe_select_scene.end_day()
+	var game_over = recipe_select_scene.end_day()
+	
+	if game_over:
+		# Game is over, wrap it up folks (for now we don't have a game over screen, so just return nothing and let it handle itself)
+		# Add a 'return' here if you want to NOT cook the food on loss
+		pass
 	
 	# Instantiating food prep scene and sending list of recipe names
 	var food_prep_scene = load(FOOD_PREP_PATH).instantiate()
