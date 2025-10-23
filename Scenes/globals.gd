@@ -28,10 +28,10 @@ var stat_multiplier: float	   = 1.0
 # FOR RECIPE SELECT SCREEN
 
 var cur_day: int				= 0
-var money: int 					= 500
-var cur_health: int 			= 100
-var cur_energy: int				= 100
-var cur_happiness: int 			= 100
+var money: int 					= 75
+var cur_health: int 			= 70
+var cur_energy: int				= 70
+var cur_happiness: int 			= 70
 
 
 # Called when the node enters the scene tree for the first time.
