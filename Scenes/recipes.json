@@ -43,9 +43,9 @@
 		"path_to_img": "res://Assets/pancakes.png",
 		"proper_name": "Pancakes",
 		"cost": 1,
-		"health_diff": -5,
+		"health_diff": -10,
 		"energy_diff": 10,
-		"happiness_diff": 15
+		"happiness_diff": 10
 	},
 	"breakfast_wrap": {
 		"ingredients":[
@@ -100,10 +100,10 @@
 		],
 		"path_to_img": "res://Assets/bacon_chesse_burger.png",
 		"proper_name": "Bacon Chesseburger",
-		"cost": 5,
-		"health_diff": 10,
-		"energy_diff": 15,
-		"happiness_diff": -5
+		"cost": 6,
+		"health_diff": 0,
+		"energy_diff": 10,
+		"happiness_diff": 5
 	},
 	"salad": {
 		"ingredients":[
@@ -130,8 +130,8 @@
 		"path_to_img": "res://Assets/lettuce_temp.png",
 		"proper_name": "Salad",
 		"cost": 7,
-		"health_diff": 15,
-		"energy_diff": 15,
+		"health_diff": 10,
+		"energy_diff": 10,
 		"happiness_diff": -5
 	},
 	"sandwich": {
@@ -155,7 +155,7 @@
 		],
 		"path_to_img": "res://Assets/sandwich.png",
 		"proper_name": "Sandwich",
-		"cost": 4,
+		"cost": 3,
 		"health_diff": -5,
 		"energy_diff": 5,
 		"happiness_diff": 5
@@ -179,7 +179,7 @@
 		"path_to_img": "res://Assets/steak_frites.png",
 		"proper_name": "Steak Frites",
 		"cost": 10,
-		"health_diff": 15,
+		"health_diff": 10,
 		"energy_diff": 10,
 		"happiness_diff": 10
 	},
@@ -216,8 +216,8 @@
 		"path_to_img": "res://Assets/orc_eats_scroll.png",
 		"proper_name": "Orc Eats Scroll",
 		"cost": 30,
-		"health_diff": 10,
-		"energy_diff": 15,
+		"health_diff": 20,
+		"energy_diff": 30,
 		"happiness_diff": 15
 	}
 }
