@@ -17,10 +17,93 @@
 		],
 		"path_to_img": "res://Assets/bacon_temp.png",
 		"proper_name": "Bacon Eggs & Toast",
-		"cost": 20,
-		"health_diff": 10,
-		"energy_diff": -10,
+		"cost": 3,
+		"health_diff": 0,
+		"energy_diff": 5,
 		"happiness_diff": 5
+	},
+	"pancakes": {
+		"ingredients":[
+			"flour",
+			"egg",
+			"milk"
+		],
+		"directions":[
+			"Step 1: Place flour in bowl.",
+			"Step 2: Place egg in bowl.",
+			"Step 3: Place milk in bowl.",
+			"Step 4: Fry the pancakes."
+		],
+		"cook_conditions":[
+			"BOWL",
+			"BOWL",
+			"BOWL",
+			"STOVED"
+		],
+		"path_to_img": "res://Assets/pancakes.png",
+		"proper_name": "Pancakes",
+		"cost": 1,
+		"health_diff": -5,
+		"energy_diff": 10,
+		"happiness_diff": 15
+	},
+	"breakfast_wrap": {
+		"ingredients":[
+			"tortilla",
+			"egg",
+			"mayonnaise",
+			"cheese",
+			"bacon"
+		],
+		"directions":[
+			"Step 1: Fry the egg.",
+			"Step 2: Fry the cheese.",
+			"Step 3: Fry the bacon.",
+			"Step 4: Warm the tortilla.",
+			"Step 5: Add the mayonnaise."
+		],
+		"cook_conditions":[
+			"STOVED",
+			"STOVED",
+			"STOVED",
+			"STOVED",
+			"BOWL"
+		],
+		"path_to_img": "res://Assets/breakfast_wrap.png",
+		"proper_name": "Breakfast Wrap",
+		"cost": 5,
+		"health_diff": 5,
+		"energy_diff": 10,
+		"happiness_diff": 5
+	},
+	"bacon_cheeseburger": {
+		"ingredients":[
+			"processed_meat",
+			"cheese",
+			"bread",
+			"bacon",
+			"mayonnaise"
+		],
+		"directions":[
+			"Step 1: Fry the patty.",
+			"Step 2: Crisp the cheese.",
+			"Step 3: Bake the bread.",
+			"Step 4: Fry the bacon.",
+			"Step 5: Make the sauce."
+		],
+		"cook_conditions":[
+			"STOVED",
+			"STOVED",
+			"OVENED",
+			"STOVED",
+			"BOWL"
+		],
+		"path_to_img": "res://Assets/bacon_chesse_burger.png",
+		"proper_name": "Bacon Chesseburger",
+		"cost": 5,
+		"health_diff": 10,
+		"energy_diff": 15,
+		"happiness_diff": -5
 	},
 	"salad": {
 		"ingredients":[
@@ -46,26 +129,95 @@
 		],
 		"path_to_img": "res://Assets/lettuce_temp.png",
 		"proper_name": "Salad",
-		"cost": 200,
-		"health_diff": 5,
+		"cost": 7,
+		"health_diff": 15,
 		"energy_diff": 15,
-		"happiness_diff": 10
+		"happiness_diff": -5
 	},
-	"canned_soup": {
+	"sandwich": {
 		"ingredients":[
-			"canned_soup",
+			"bread",
+			"processed_meat",
+			"cheese",
+			"mayonnaise"
 		],
 		"directions":[
-			"Step 1: Boil the soup."
+			"Step 1: Toast the bread.",
+			"Step 2: Place the meat.",
+			"Step 3: Cut the cheese.",
+			"Step 4: Drizzle the mayonnaise."
+		],
+		"cook_conditions":[
+			"STOVED",
+			"BOWL",
+			"CHOPPED",
+			"BOWL"
+		],
+		"path_to_img": "res://Assets/sandwich.png",
+		"proper_name": "Sandwich",
+		"cost": 4,
+		"health_diff": -5,
+		"energy_diff": 5,
+		"happiness_diff": 5
+	},
+	"steak_frites": {
+		"ingredients":[
+			"quality_meat",
+			"potatos",
+			"carrots"
+		],
+		"directions":[
+			"Step 1: Sear the meat.",
+			"Step 2: Chop the potatos.",
+			"Step 3: Cut the carrots."
+		],
+		"cook_conditions":[
+			"STOVED",
+			"CHOPPED",
+			"CHOPPED"
+		],
+		"path_to_img": "res://Assets/steak_frites.png",
+		"proper_name": "Steak Frites",
+		"cost": 10,
+		"health_diff": 15,
+		"energy_diff": 10,
+		"happiness_diff": 10
+	},
+	"raw_myan": {
+		"ingredients":[
+			"raw_myan_bundle",
+			"egg"
+		],
+		"directions":[
+			"Step 1: Boil the Myan.",
+			"Step 2: Add in the egg"
+		],
+		"cook_conditions":[
+			"STOVED",
+			"BOWL"
+		],
+		"path_to_img": "res://Assets/canned_soup_temp.png",
+		"proper_name": "Raw Myan",
+		"cost": 2,
+		"health_diff": -10,
+		"energy_diff": 5,
+		"happiness_diff": 0
+	},
+	"orc_eats_scroll": {
+		"ingredients":[
+			"orc_eats_scroll"
+		],
+		"directions":[
+			"Step 1: Activate the scroll with fire."
 		],
 		"cook_conditions":[
 			"STOVED"
 		],
-		"path_to_img": "res://Assets/canned_soup_temp.png",
-		"proper_name": "Canned Soup",
-		"cost": 5,
-		"health_diff": -5,
-		"energy_diff": -5,
-		"happiness_diff": -5
+		"path_to_img": "res://Assets/orc_eats_scroll.png",
+		"proper_name": "Orc Eats Scroll",
+		"cost": 30,
+		"health_diff": 10,
+		"energy_diff": 15,
+		"happiness_diff": 15
 	}
 }
