@@ -33,6 +33,11 @@ var cur_health: int 			= 70
 var cur_energy: int				= 70
 var cur_happiness: int 			= 70
 
+# FOR INTERMEDIARY SCENE
+var prev_money: int 				= 75
+var prev_health: int 				= 70
+var prev_energy: int				= 70
+var prev_happiness: int 			= 70
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

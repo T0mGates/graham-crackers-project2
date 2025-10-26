@@ -90,7 +90,7 @@ func set_ingredients(received_recipes: Array) -> void:
 		new_ingredient.name  = "breakfast_%s" % Globals.breakfast.get("ingredients")[i]
 		new_ingredient.set_ing_name(Globals.breakfast.get("ingredients")[i])
 		new_ingredient.set_ing_id(i)
-		new_ingredient.set_sprite("%s_temp" % Globals.breakfast.get("ingredients")[i])
+		new_ingredient.set_sprite("%s" % Globals.breakfast.get("ingredients")[i])
 		new_ingredient.scale = Vector2(0.15, 0.15)#new_ingredient.scale / new_ingredient.texture.get_size()
 
 		# Generating a random starting position
@@ -108,7 +108,7 @@ func set_ingredients(received_recipes: Array) -> void:
 		new_ingredient.name  = "lunch_%s" % Globals.lunch.get("ingredients")[i]
 		new_ingredient.set_ing_name(Globals.lunch.get("ingredients")[i])
 		new_ingredient.set_ing_id(i)
-		new_ingredient.set_sprite("%s_temp" % Globals.lunch.get("ingredients")[i])
+		new_ingredient.set_sprite("%s" % Globals.lunch.get("ingredients")[i])
 		new_ingredient.scale = Vector2(0.15, 0.15)#new_ingredient.scale / new_ingredient.texture.get_size()
 
 		# Generating a random starting position
@@ -126,7 +126,7 @@ func set_ingredients(received_recipes: Array) -> void:
 		new_ingredient.name  = "dinner_%s" % Globals.dinner.get("ingredients")[i]
 		new_ingredient.set_ing_name(Globals.dinner.get("ingredients")[i])
 		new_ingredient.set_ing_id(i)
-		new_ingredient.set_sprite("%s_temp" % Globals.dinner.get("ingredients")[i])
+		new_ingredient.set_sprite("%s" % Globals.dinner.get("ingredients")[i])
 		new_ingredient.scale = Vector2(0.15, 0.15)
 
 		# Generating a random starting position
@@ -269,10 +269,10 @@ func end_cooking() -> void:
 	Globals.dinner_ing_obj.clear()
 
 	# Instantiating end scene
-	load("res://Scenes/EndScene.tscn").instantiate()
+	load("res://Scenes/IntermediaryScene.tscn").instantiate()
 
 	# Changing to the end scene
-	get_tree().change_scene_to_file("res://Scenes/EndScene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/IntermediaryScene.tscn")
 
 func _on_timer_timeout() -> void:
 	end_cooking()
