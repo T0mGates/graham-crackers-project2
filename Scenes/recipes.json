@@ -15,7 +15,7 @@
 			"STOVED",
 			"TOASTED"
 		],
-		"path_to_img": "res://Assets/bacon_temp.png",
+		"path_to_img": "res://Assets/bacon_eggs_toast.png",
 		"proper_name": "Bacon Eggs & Toast",
 		"cost": 3,
 		"health_diff": 0,
@@ -96,7 +96,7 @@
 			"STOVED",
 			"BOWL"
 		],
-		"path_to_img": "res://Assets/bacon_chesse_burger.png",
+		"path_to_img": "res://Assets/bacon_cheeseburger.png",
 		"proper_name": "Bacon Chesseburger",
 		"cost": 6,
 		"health_diff": 0,
@@ -125,7 +125,7 @@
 			"BOWL",
 			"CHOPPED"
 		],
-		"path_to_img": "res://Assets/lettuce_temp.png",
+		"path_to_img": "res://Assets/salad.png",
 		"proper_name": "Salad",
 		"cost": 7,
 		"health_diff": 10,
@@ -194,7 +194,7 @@
 			"STOVED",
 			"BOWL"
 		],
-		"path_to_img": "res://Assets/canned_soup_temp.png",
+		"path_to_img": "res://Assets/raw_myan.png",
 		"proper_name": "Raw Myan",
 		"cost": 2,
 		"health_diff": -10,

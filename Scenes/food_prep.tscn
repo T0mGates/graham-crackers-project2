@@ -21,9 +21,22 @@ font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_2f0d5"]
 font_size = 24
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="FoodPrepScene" type="Node2D"]
 script = ExtResource("1_7fvax")
+
+[node name="Background" type="Polygon2D" parent="."]
+position = Vector2(-33.565434, -11.605367)
+scale = Vector2(1.0271604, 1.0410185)
+color = Color(0.31479424, 0.200629, 0.24964035, 1)
+polygon = PackedVector2Array(-4, 2, -16, 673, 1199, 670, 1188, -22, 0, -34)
+
+[node name="Polygon2D" type="Polygon2D" parent="Background"]
+position = Vector2(39, 40.995865)
+scale = Vector2(1, 0.9985202)
+color = Color(0.7367243, 0.5146136, 0.4507116, 1)
+polygon = PackedVector2Array(13.14904, 479.9793, 0, 601.8948, 210.78125, 575.2194, 348.0529, 591.5738, 486.2981, 574.2574, 585.601, 596.38385, 748.3558, 595.59937, 807.57214, 582.9156, 898.11304, 596.38385, 1096, 581.0957, 1083, 201.76077, 1102, -19.105263, 924.3991, -22.195839, 747.2116, -12.575626, 581.7068, -27.005945, 385.0481, -6.8034973, 238.04088, -22.195839, 4.3870225, -10.651583, 12.175484, 147.11992, 7.307696, 302.00537)
 
 [node name="Toaster" type="StaticBody2D" parent="." groups=["is_appliance"]]
 position = Vector2(87.00001, 567)
@@ -115,6 +128,7 @@ offset_left = 787.0
 offset_top = 114.0
 offset_right = 1117.0
 offset_bottom = 156.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Steps"
 label_settings = SubResource("LabelSettings_2f0d5")
 
@@ -123,6 +137,7 @@ offset_left = 786.0
 offset_top = 158.0
 offset_right = 1117.0
 offset_bottom = 200.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Step 1:"
 label_settings = SubResource("LabelSettings_2f0d5")
 

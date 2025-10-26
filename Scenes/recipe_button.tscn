@@ -21,36 +21,46 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -24.0
+offset_left = -36.0
+offset_top = 21.0
+offset_right = 8.0
+offset_bottom = 45.0
 grow_horizontal = 0
 grow_vertical = 0
+rotation = -1.5707964
+theme_override_colors/button_checked_color = Color(0, 0.8862745, 0.22352941, 1)
 
 [node name="RecipeName" type="Label" parent="SelectControl"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = -0.13333334
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.8666667
+offset_top = 8.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -5
 theme_override_font_sizes/font_size = 12
 text = "Some Recipe Name Hahaha"
-horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="RecipeImg" type="Sprite2D" parent="SelectControl"]
-position = Vector2(29, 43)
-scale = Vector2(0.075, 0.075)
+position = Vector2(50.1, 57.100006)
+scale = Vector2(0.12343748, 0.12343748)
 texture = ExtResource("3_4w71g")
 
 [node name="InfoText" type="Node2D" parent="."]
-position = Vector2(0, 62)
+position = Vector2(0, 58)
 
 [node name="Label" type="Label" parent="InfoText"]
-offset_right = 140.0
-offset_bottom = 75.0
+offset_left = 16.0
+offset_top = 39.0
+offset_right = 156.0
+offset_bottom = 114.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -3
 theme_override_font_sizes/font_size = 10
 text = "This is some stuff that'll happen"

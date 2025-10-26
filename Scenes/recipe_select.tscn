@@ -1,26 +1,47 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgybpvsfp57pd"]
+[gd_scene load_steps=16 format=3 uid="uid://cgybpvsfp57pd"]
 
-[ext_resource type="Texture2D" uid="uid://y8k58y7o7ej3" path="res://Assets/walter_white.jpg" id="1_dk4w6"]
 [ext_resource type="Script" uid="uid://btwqk52b1jtc" path="res://Scenes/recipe_select.gd" id="1_lblv1"]
+[ext_resource type="Texture2D" uid="uid://duvbx180gtvhv" path="res://Assets/bar_bg_texture.png" id="2_vqio6"]
 [ext_resource type="Script" uid="uid://q7kw7t1yw52" path="res://Scenes/ready_to_cook.gd" id="2_xira4"]
+[ext_resource type="Texture2D" uid="uid://non5ex7ufycn" path="res://Assets/breakfast.png" id="4_f1ixs"]
+[ext_resource type="Texture2D" uid="uid://kv0iudykj5hu" path="res://Assets/health_bar_texture.png" id="4_vqio6"]
+[ext_resource type="Texture2D" uid="uid://l08elm4tlpu5" path="res://Assets/energy_bar_texture.png" id="5_f1ixs"]
+[ext_resource type="Texture2D" uid="uid://cbraon1a81hj3" path="res://Assets/lunch.png" id="5_mx0q3"]
+[ext_resource type="Texture2D" uid="uid://chrx2y6nmn2jg" path="res://Assets/happiness_bar_texture.png" id="6_kwimk"]
+[ext_resource type="Texture2D" uid="uid://c3sckx8xn2ap3" path="res://Assets/dinner.png" id="6_v4md5"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_lblv1"]
-diffuse_texture = ExtResource("1_dk4w6")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1ixs"]
+texture = ExtResource("2_vqio6")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ltds"]
-bg_color = Color(3.829657e-06, 3.829657e-06, 3.829657e-06, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mx0q3"]
+texture = ExtResource("4_vqio6")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl5e7"]
-bg_color = Color(1, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwimk"]
+texture = ExtResource("2_vqio6")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lblv1"]
-bg_color = Color(1, 1, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4md5"]
+texture = ExtResource("5_f1ixs")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqio6"]
-bg_color = Color(0, 1, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_slobb"]
+texture = ExtResource("2_vqio6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_meq50"]
+texture = ExtResource("6_kwimk")
 
 [node name="RecipeSelectScene" type="Node2D"]
 script = ExtResource("1_lblv1")
+
+[node name="Background" type="Polygon2D" parent="."]
+position = Vector2(-33.565434, -11.605367)
+scale = Vector2(1.0271604, 1.0410185)
+color = Color(0.3640838, 0.36408398, 0.36408392, 1)
+polygon = PackedVector2Array(-4, 2, -16, 673, 1199, 670, 1188, -22, 0, -34)
+
+[node name="Polygon2D" type="Polygon2D" parent="Background"]
+position = Vector2(39, 40.995865)
+scale = Vector2(1, 0.9985202)
+color = Color(0.57700837, 0.5770084, 0.57700837, 1)
+polygon = PackedVector2Array(13.14904, 479.9793, 0, 601.8948, 210.78125, 575.2194, 348.0529, 591.5738, 486.2981, 574.2574, 585.601, 596.38385, 748.3558, 595.59937, 807.57214, 582.9156, 898.11304, 596.38385, 1096, 581.0957, 1083, 201.76077, 1102, -19.105263, 924.3991, -22.195839, 747.2116, -12.575626, 581.7068, -27.005945, 385.0481, -6.8034973, 238.04088, -22.195839, 4.3870225, -10.651583, 12.175484, 147.11992, 7.307696, 302.00537)
 
 [node name="MainUI" type="Control" parent="."]
 layout_mode = 3
@@ -39,6 +60,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 scale = Vector2(2.8086257, 2.5797906)
 size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Day 1"
 
 [node name="ScenarioText" type="Label" parent="MainUI"]
@@ -50,13 +72,15 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -508.0
 offset_top = -224.5
-offset_right = -328.0
+offset_right = -339.5902
 offset_bottom = -193.5
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(2.8086257, 2.5797906)
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
 text = "This is some really cool auto-wrapping scenario text!"
 horizontal_alignment = 2
 autowrap_mode = 2
@@ -69,7 +93,7 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 224.0
 offset_bottom = 89.0
-texture_normal = SubResource("CanvasTexture_lblv1")
+texture_normal = ExtResource("2_vqio6")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_xira4")
@@ -79,6 +103,8 @@ layout_mode = 1
 anchors_preset = -1
 offset_right = 219.0
 offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.24313726, 0.79607844, 0.98039216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Ready To Cook"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,28 +117,61 @@ metadata/_edit_lock_ = true
 position = Vector2(21, 51)
 
 [node name="Label" type="Label" parent="MainUI/RecipeOptions/Breakfast"]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.24313726, 0.79607844, 0.98039216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Breakfast"
+
+[node name="TextureRect" type="TextureRect" parent="MainUI/RecipeOptions/Breakfast"]
+offset_left = 1.0
+offset_top = -13.0
+offset_right = 298.46707
+offset_bottom = 45.0
+texture = ExtResource("4_f1ixs")
+expand_mode = 1
 
 [node name="Lunch" type="Node2D" parent="MainUI/RecipeOptions"]
 position = Vector2(25, 250)
 
 [node name="Label" type="Label" parent="MainUI/RecipeOptions/Lunch"]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.24313726, 0.79607844, 0.98039216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Lunch"
+
+[node name="TextureRect" type="TextureRect" parent="MainUI/RecipeOptions/Lunch"]
+offset_left = 1.0
+offset_right = 199.0
+offset_bottom = 57.0
+texture = ExtResource("5_mx0q3")
+expand_mode = 1
 
 [node name="Dinner" type="Node2D" parent="MainUI/RecipeOptions"]
 position = Vector2(25, 473)
 
 [node name="Label" type="Label" parent="MainUI/RecipeOptions/Dinner"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 20
+visible = false
+offset_top = -16.0
+offset_right = 82.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.24313726, 0.79607844, 0.98039216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Dinner"
+
+[node name="TextureRect" type="TextureRect" parent="MainUI/RecipeOptions/Dinner"]
+offset_left = 1.0
+offset_top = -19.0
+offset_right = 247.14063
+offset_bottom = 40.0
+texture = ExtResource("6_v4md5")
+expand_mode = 1
 
 [node name="Resources" type="Control" parent="MainUI"]
 layout_mode = 1
@@ -140,13 +199,15 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 5.9
-offset_top = -39.0
-offset_right = 116.9
-offset_bottom = -11.0
+offset_left = 44.899902
+offset_top = -23.600037
+offset_right = 232.8999
+offset_bottom = 23.399963
 grow_vertical = 2
 scale = Vector2(0.09219685, 0.113819)
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.23921569, 1, 0.23921569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
 text = "Money: 666"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -167,13 +228,13 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 0.59999996
-offset_top = -27.2
-offset_right = 4.6
-offset_bottom = -0.20000076
+offset_left = 16.600008
+offset_top = -35.52498
+offset_right = 21.300005
+offset_bottom = -3.7999992
 grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_5ltds")
-theme_override_styles/fill = SubResource("StyleBoxFlat_gl5e7")
+theme_override_styles/background = SubResource("StyleBoxTexture_f1ixs")
+theme_override_styles/fill = SubResource("StyleBoxTexture_mx0q3")
 value = 20.0
 fill_mode = 3
 show_percentage = false
@@ -183,13 +244,15 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -0.1
-offset_top = -30.4
-offset_right = 80.9
-offset_bottom = -2.3999996
+offset_left = 15.699951
+offset_top = -40.599854
+offset_right = 96.69995
+offset_bottom = -5.5998535
 grow_vertical = 2
 scale = Vector2(0.09219685, 0.113819)
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 0.37912467, 0.33203822, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -212,23 +275,27 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -27.0
-offset_right = 4.0
+offset_left = 17.999916
+offset_top = -35.60012
+offset_right = 22.799934
+offset_bottom = -3.199997
 grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_5ltds")
-theme_override_styles/fill = SubResource("StyleBoxFlat_lblv1")
+theme_override_styles/background = SubResource("StyleBoxTexture_kwimk")
+theme_override_styles/fill = SubResource("StyleBoxTexture_v4md5")
 value = 20.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Label" type="Label" parent="MainUI/Resources/Energy"]
 layout_mode = 0
-offset_left = -2.4000008
-offset_top = -29.800009
-offset_right = 78.6
-offset_bottom = -6.800009
+offset_left = 16.799683
+offset_top = -40.599976
+offset_right = 98.79968
+offset_bottom = -5.5999756
 scale = Vector2(0.09219685, 0.113819)
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.8509804, 0.94509804, 0.35686275, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Energy"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -251,23 +318,27 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -27.0
-offset_right = 4.0
+offset_left = 20.000008
+offset_top = -35.600018
+offset_right = 24.80001
+offset_bottom = -3.199997
 grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_5ltds")
-theme_override_styles/fill = SubResource("StyleBoxFlat_vqio6")
+theme_override_styles/background = SubResource("StyleBoxTexture_slobb")
+theme_override_styles/fill = SubResource("StyleBoxTexture_meq50")
 value = 20.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Label" type="Label" parent="MainUI/Resources/Happiness"]
 layout_mode = 0
-offset_left = -1.4
-offset_top = -30.20001
-offset_right = 79.6
-offset_bottom = -7.2000103
+offset_left = 18.400024
+offset_top = -40.599976
+offset_right = 144.40002
+offset_bottom = -5.5999756
 scale = Vector2(0.09219685, 0.113819)
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.27450982, 0.9098039, 0.5921569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Happiness"
 horizontal_alignment = 1
 vertical_alignment = 1
