@@ -68,10 +68,10 @@ func end_day():
 	
 	update_ui()
 	
-func end_game(win: bool, info: String):
+func end_game(win: bool, end_name: String, info: String):
 	print("You won: %s" % [str(win)])
-	day_text.text 			= info
-	scenario_text.text 		= ""
+	day_text.text 			= "You got the '"+end_name+"' ending"
+	scenario_text.text 		= info
 	ready_to_cook.visible 	= false
 	update_ui()
 
@@ -93,8 +93,25 @@ func setup_new_day():
 	# Get data for today, using Globals.cur_day
 	# If it doesn't exist, means we've finished the game!
 	if {} == day_data:
-		# Done!
-		end_game(true, "YOU WIN!")
+		# Done! Now we pick an ending!
+		var ending_name = ""
+		var ending_desc = ""
+		if 170 <= Globals.cur_health + Globals.cur_energy + Globals.cur_happiness:
+			ending_name = "Master Chef"
+			ending_desc = "Victory! That's what happens when a culinary savant like yourself rises to the challenge and chefs their way through everything life has to throw at them. Nothing will ever stop this meal prep pro!"
+		elif 0 <= Globals.cur_happiness and Globals.cur_happiness <= 15:
+			ending_name = "Barely hanging on"
+			ending_desc = "You did it! You got through one of the hardest weeks of your life, but only JUST. Remember that your mental health takes precedence before all else, you should still be proud though."
+		elif 100 <= Globals.cur_health + Globals.cur_energy + Globals.cur_happiness and 10 <= Globals.money:
+			ending_name = "Master Budgeter"
+			ending_desc = "The results? Satisfactory. Your wallet? Overflowing! Hey you know if you put away all of the money you saved into an index fund you could have almost $33 when you retire? Hey wait, where are you going! No, come back! I-"
+		elif 120 <= Globals.cur_health + Globals.cur_energy + Globals.cur_happiness:
+			ending_name = "Short Order Cook"
+			ending_desc = "A burger for every battle! You've proven that a seasoned chef, when put under fire, will always cut the mustard. Here's to many meals and succulent successes in your future."
+		else:
+			ending_name = "Grease in the pan"
+			ending_desc = "There were more than a few close calls, but survival really is all that ever truly matters. Keep your needs in mind, make time for yourself, and you can do anything!"
+		end_game(true, ending_name, ending_desc)
 		return
 	
 	print(day_data)
@@ -111,7 +128,7 @@ func setup_new_day():
 func check_if_game_over():
 	# Look for lose conditions
 	# For now just print, but we maybe want a game over screen?
-	var money_loss 		= Globals.money <= 0
+	var money_loss 		= Globals.money < 0
 	var health_loss 	= Globals.cur_health <= 0
 	var energy_loss 	= Globals.cur_energy <= 0
 	var happiness_loss 	= Globals.cur_happiness <= 0
@@ -120,19 +137,19 @@ func check_if_game_over():
 	# LOST
 	if overall_loss:
 		if money_loss:
-			end_game(false, "YOU LOST cus of money")
+			end_game(false, "Indebted", "On top of your student debt, now you have lunch debt. An issue experienced by tardy bar patrons, American school children, and now you!")
 			return true
 		
 		if health_loss:
-			end_game(false, "YOU LOST cus of health")
+			end_game(false, "Whispy Husk", "No no no you cant just eat whatever you want! A balanced diet of fruits, vegetables, grains, dairy, and proteins are required for healthy living. To learn more please go to www.williamdual.itch.io/gardenians to learn more!")
 			return true
 		
 		if energy_loss:
-			end_game(false, "YOU LOST cus of energy")
+			end_game(false, "Eepy", "While I commend you for not relying on energy drinks or coffee, I will say that you should probably put some more pep in your step.")
 			return true
 			
 		if happiness_loss:
-			end_game(false, "YOU LOST cus of happiness")
+			end_game(false, "Big Sad", "Eating happy is almost as important as eating healthy! Have a burger or something every once in a while")
 			return true
 			
 	return false

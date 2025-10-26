@@ -1,22 +1,32 @@
 {
 	"1":
 		{
-			"breakfast_options": ["bacon_eggs_toast", "canned_soup"],
-			"lunch_options": ["salad", "canned_soup"],
-			"dinner_options": ["bacon_eggs_toast", "canned_soup", "salad"],
-			"scenario_description": "You are fighting for your life in the rec volleyball league tonight. You will be spending a lot of energy, and most definitely will lose, meaning you will also be less happy. Oh and also, losing isn't good for your health. Triple whammy buddy.",
+			"breakfast_options": ["bacon_eggs_toast", "pancakes", "breakfast_wrap", "sandwich"],
+			"lunch_options": ["bacon_cheeseburger", "salad", "sandwich", "raw_myan"],
+			"dinner_options": ["steak_frites", "salad", "sandwich", "orc_eats_scroll"],
+			"scenario_description": "First day in the dungeon! All of your ingredients and appliances are packed, no starving for this feller! From previous expeditions you've heard that your first 8 hours will involve a quick swim through the pool of excruciating pain! Expect a good amount of physical injury, exhaustion, and a bit of melancholy.",
 			"eod_health_diff": -20,
 			"eod_energy_diff": -25,
-			"eod_happiness_diff": -15
+			"eod_happiness_diff": -10
 		},
 	"2":
 		{
-			"breakfast_options": ["bacon_eggs_toast", "canned_soup"],
-			"lunch_options": ["salad", "canned_soup"],
-			"dinner_options": ["bacon_eggs_toast", "canned_soup", "salad"],
-			"scenario_description": "This is a different scenario",
-			"eod_health_diff": -20,
-			"eod_energy_diff": -25,
-			"eod_happiness_diff": -15
+			"breakfast_options": ["bacon_eggs_toast", "pancakes", "breakfast_wrap", "raw_myan"],
+			"lunch_options": ["bacon_cheeseburger", "salad", "sandwich", "raw_myan"],
+			"dinner_options": ["steak_frites", "bacon_cheeseburger", "raw_myan", "orc_eats_scroll"],
+			"scenario_description": "Your second day! Today's agenda notably includes a battle with Old Orc Oliver. He used to be the scourge of the dungeon, the final boss everyone dreaded. But now he kinda just throws himself at you, it's a bit sad really, he never fully bounced back after that knee injury. Expect a large energy and happiness penalty.",
+			"eod_health_diff": 0,
+			"eod_energy_diff": -40,
+			"eod_happiness_diff": -20
+		},
+	"3":
+		{
+			"breakfast_options": ["bacon_eggs_toast", "pancakes", "breakfast_wrap", "salad"],
+			"lunch_options": ["bacon_cheeseburger", "salad", "sandwich", "orc_eats_scroll"],
+			"dinner_options": ["steak_frites", "bacon_cheeseburger", "sandwich", "orc_eats_scroll"],
+			"scenario_description": "Ahh day 3, it's often said that the best things come in threes, but unfortunately that doesn't apply here. Its final boss time, and between you and your goal lies The Lord of Profound Suffering (with a name like that he never had a chance). Expect a curb stomping that will level upon you health and energy debts that your descendants will be paying off for generations. Prepare.",
+			"eod_health_diff": -40,
+			"eod_energy_diff": -30,
+			"eod_happiness_diff": -5
 		}
 }
