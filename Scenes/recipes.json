@@ -31,14 +31,12 @@
 		"directions":[
 			"Step 1: Place flour in bowl.",
 			"Step 2: Place egg in bowl.",
-			"Step 3: Place milk in bowl.",
-			"Step 4: Fry the pancakes."
+			"Step 3: Place milk in bowl."
 		],
 		"cook_conditions":[
 			"BOWL",
 			"BOWL",
-			"BOWL",
-			"STOVED"
+			"BOWL"
 		],
 		"path_to_img": "res://Assets/pancakes.png",
 		"proper_name": "Pancakes",
@@ -49,18 +47,18 @@
 	},
 	"breakfast_wrap": {
 		"ingredients":[
-			"tortilla",
 			"egg",
-			"mayonnaise",
 			"cheese",
-			"bacon"
+			"bacon",
+			"tortilla",
+			"mayonnaise"
 		],
 		"directions":[
 			"Step 1: Fry the egg.",
 			"Step 2: Fry the cheese.",
 			"Step 3: Fry the bacon.",
 			"Step 4: Warm the tortilla.",
-			"Step 5: Add the mayonnaise."
+			"Step 5: Make mayonnaise sauce in bowl."
 		],
 		"cook_conditions":[
 			"STOVED",
@@ -148,7 +146,7 @@
 			"Step 4: Drizzle the mayonnaise."
 		],
 		"cook_conditions":[
-			"STOVED",
+			"TOASTED",
 			"BOWL",
 			"CHOPPED",
 			"BOWL"
@@ -208,10 +206,10 @@
 			"orc_eats_scroll"
 		],
 		"directions":[
-			"Step 1: Activate the scroll with fire."
+			"Step 1: Activate the scroll with fire from all sides."
 		],
 		"cook_conditions":[
-			"STOVED"
+			"OVENED"
 		],
 		"path_to_img": "res://Assets/orc_eats_scroll.png",
 		"proper_name": "Orc Eats Scroll",
