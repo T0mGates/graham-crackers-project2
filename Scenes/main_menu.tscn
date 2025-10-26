@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://bllhmuj87ef7d"]
+
+[ext_resource type="Script" uid="uid://cxj5rotrpm5gi" path="res://main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://csjhbegychu37" path="res://Assets/start_game.png" id="2_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://cex3xlkwgrmkt" path="res://Assets/start_game2.png" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://ccs2m8sduuuy4" path="res://Assets/options.png" id="4_trj04"]
+[ext_resource type="Texture2D" uid="uid://qo1y4eo8hj2u" path="res://Assets/options2.png" id="5_16hvj"]
+[ext_resource type="Texture2D" uid="uid://cg7efnvq8nyo5" path="res://Assets/quit_game.png" id="6_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://csbvqao6k8r70" path="res://Assets/quit_game2.png" id="7_t1dhk"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_28flt")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-15, 2)
+color = Color(0.5389059, 0.4372388, 0.34791443, 1)
+polygon = PackedVector2Array(-4, 2, -16, 673, 1199, 670, 1188, -22, 0, -34)
+
+[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
+position = Vector2(39, 45.578587)
+scale = Vector2(1, 0.9909064)
+color = Color(0.9326358, 0.8248423, 0.7304046, 1)
+polygon = PackedVector2Array(26, 516, 0, 601.8948, 396, 573.17224, 638, 598.92346, 1096, 581.0957, 1083, 201.76077, 1102, -19.105263, 980, -26.038277, 732, -37.923447, 318, -18.114832, 14, -22, -3, 186.90433)
+
+[node name="Buttons_All" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="TextureButton" parent="Buttons_All"]
+layout_mode = 0
+offset_left = 733.0
+offset_top = 250.0
+offset_right = 1079.0
+offset_bottom = 352.0
+texture_normal = ExtResource("2_cp0ys")
+texture_pressed = ExtResource("3_yhxw7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Options" type="TextureButton" parent="Buttons_All"]
+layout_mode = 0
+offset_left = 678.0
+offset_top = 357.0
+offset_right = 1057.0
+offset_bottom = 454.0
+texture_normal = ExtResource("4_trj04")
+texture_pressed = ExtResource("5_16hvj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Quit" type="TextureButton" parent="Buttons_All"]
+layout_mode = 0
+offset_left = 730.0
+offset_top = 469.0
+offset_right = 1052.0
+offset_bottom = 583.0
+texture_normal = ExtResource("6_vr1f0")
+texture_pressed = ExtResource("7_t1dhk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Buttons_All/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons_All/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons_All/Quit" to="." method="_on_quit_pressed"]
