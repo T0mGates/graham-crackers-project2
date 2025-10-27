@@ -113,7 +113,7 @@ func set_sprite(sprite_image_name: String) -> void:
 	print("Name: %s" % sprite_image_name)
 
 	# If the file path exists then load it as a texture
-	if FileAccess.file_exists(tex_path):
+	if ResourceLoader.exists(tex_path):
 		tex.texture = load(tex_path)
 
 	# Use the default sprite if no file path exists

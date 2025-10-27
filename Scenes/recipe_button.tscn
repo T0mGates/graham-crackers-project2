@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cabaak67as4g7"]
+[gd_scene load_steps=5 format=3 uid="uid://cabaak67as4g7"]
 
 [ext_resource type="Script" uid="uid://llkal57nf7jl" path="res://Scenes/recipe_button.gd" id="1_0x8w7"]
 [ext_resource type="Script" uid="uid://bm2l4ymxk7efv" path="res://Scenes/select_control.gd" id="2_o2d84"]
 [ext_resource type="Texture2D" uid="uid://dmpxfi5qjxrxc" path="res://icon.svg" id="3_4w71g"]
+[ext_resource type="Texture2D" uid="uid://duvbx180gtvhv" path="res://Assets/bar_bg_texture.png" id="4_w0vfv"]
 
 [node name="RecipeButton" type="Node2D"]
 script = ExtResource("1_0x8w7")
@@ -11,7 +12,7 @@ script = ExtResource("1_0x8w7")
 layout_mode = 3
 anchors_preset = 0
 offset_right = 140.0
-offset_bottom = 60.0
+offset_bottom = 85.0
 script = ExtResource("2_o2d84")
 
 [node name="SelectBtn" type="CheckButton" parent="SelectControl"]
@@ -22,9 +23,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -36.0
-offset_top = 21.0
+offset_top = -10.0
 offset_right = 8.0
-offset_bottom = 45.0
+offset_bottom = 14.0
 grow_horizontal = 0
 grow_vertical = 0
 rotation = -1.5707964
@@ -55,11 +56,19 @@ texture = ExtResource("3_4w71g")
 [node name="InfoText" type="Node2D" parent="."]
 position = Vector2(0, 58)
 
+[node name="Sprite2D" type="Sprite2D" parent="InfoText"]
+z_index = 1
+position = Vector2(15.633025, 40)
+scale = Vector2(0.20631343, 0.10428572)
+texture = ExtResource("4_w0vfv")
+offset = Vector2(335.205, 341.525)
+
 [node name="Label" type="Label" parent="InfoText"]
+z_index = 2
 offset_left = 16.0
-offset_top = 39.0
+offset_top = 40.0
 offset_right = 156.0
-offset_bottom = 114.0
+offset_bottom = 115.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -3
 theme_override_font_sizes/font_size = 10

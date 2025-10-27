@@ -182,7 +182,7 @@ func _start_new_day(	breakfast_options_param: Array,
 							
 							recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
 							
-							recipe_option_btn.setup(breakfast_option)
+							recipe_option_btn.setup(breakfast_option, false)
 							
 							num_loops 					+= 1
 							
@@ -199,7 +199,7 @@ func _start_new_day(	breakfast_options_param: Array,
 							
 							recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
 							
-							recipe_option_btn.setup(lunch_option)
+							recipe_option_btn.setup(lunch_option, false)
 							
 							num_loops 					+= 1
 							
@@ -216,7 +216,7 @@ func _start_new_day(	breakfast_options_param: Array,
 							
 							recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
 							
-							recipe_option_btn.setup(dinner_option)
+							recipe_option_btn.setup(dinner_option, true)
 							
 							num_loops 					+= 1
 						

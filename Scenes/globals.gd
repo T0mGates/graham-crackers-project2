@@ -52,7 +52,7 @@ func get_json_from_file(path: String) -> Dictionary:
 	var json_obj: Dictionary = {}
 	
 	# Checking to see if the desired file exists
-	if not FileAccess.file_exists(path):
+	if not ResourceLoader.exists(path):
 		print("ERROR: No file found to retrieve JSON from")
 		return json_obj
 

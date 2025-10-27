@@ -22,7 +22,8 @@ func _ready() -> void:
 func get_recipe_name()-> String:
 	return recipe_name
 
-func setup(recipe_name_param: String):
+# Call with top == true for it to appear on top, else will appear on bottom
+func setup(recipe_name_param: String, top: bool = false):
 	recipe_name 		= recipe_name_param
 	var recipe_book   	= Globals.get_json_from_file(RECIPE_BOOK_PATH)
 	var recipe_data  	= recipe_book.get(recipe_name_param)
@@ -39,6 +40,7 @@ func setup(recipe_name_param: String):
 		recipe_img.texture = recipe_img_texture  
 	
 	select_control.set_info_text(money_diff, health_diff, energy_diff, happiness_diff)
+	select_control.set_hover_pos(top)
 
 func get_btn_node()-> CheckButton:
 	return select_btn

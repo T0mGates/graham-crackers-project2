@@ -16,7 +16,9 @@ func _on_start_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/options.tscn")
+	# Temporarily does nothing
+	#get_tree().change_scene_to_file("res://Scenes/options.tscn")
+	pass
 
 
 func _on_quit_pressed() -> void:
