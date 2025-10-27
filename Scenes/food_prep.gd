@@ -2,11 +2,12 @@ extends Node2D
 
 # Constants
 const RECIPE_BOOK_PATH: 		String 		= "res://Scenes/recipes.json"
-const BREAKFAST_STR:			String		= "Breakfast Steps"
-const LUNCH_STR:				String		= "Lunch Steps"
-const DINNER_STR:				String		= "Dinner Steps"
+const BREAKFAST_STR:			String		= "Breakfast Steps:\n"
+const LUNCH_STR:				String		= "Lunch Steps:\n"
+const DINNER_STR:				String		= "Dinner Steps:\n"
 const MEALS_STR:				String		= "Meals Complete: "
 const TRY_AGAIN_STR:			String		= "Incorrect step. Try again!"
+const MAX_REDUCTION:			int			= 50
 
 # Timer object and label
 @onready var _timer:			Timer		= $"Timer"
@@ -59,7 +60,7 @@ func _ready() -> void:
 	_max_order		  = _curr_recipe.get("ingredients").size()
 
 	# Setting the labels
-	_meal_label.text  = BREAKFAST_STR
+	_meal_label.text  = BREAKFAST_STR + _curr_recipe.get("proper_name")
 	_step_label.text  = _curr_recipe.get("directions")[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,7 +83,6 @@ func set_ingredients(received_recipes: Array) -> void:
 	Globals.dinner    = recipe_book.get(received_recipes[2])
 
 	# Place breakfast ingredients on screen
-	#print(Globals.breakfast.get("ingredients"))
 	for i in range(Globals.breakfast.get("ingredients").size()):
 
 		# Create and instantiate new ingredients node
@@ -90,8 +90,10 @@ func set_ingredients(received_recipes: Array) -> void:
 		new_ingredient.name  = "breakfast_%s" % Globals.breakfast.get("ingredients")[i]
 		new_ingredient.set_ing_name(Globals.breakfast.get("ingredients")[i])
 		new_ingredient.set_ing_id(i)
+
+		# Setting the sprite and scale
 		new_ingredient.set_sprite("%s" % Globals.breakfast.get("ingredients")[i])
-		new_ingredient.scale = Vector2(0.15, 0.15)#new_ingredient.scale / new_ingredient.texture.get_size()
+		new_ingredient.scale = Vector2(0.15, 0.15)
 
 		# Generating a random starting position
 		new_ingredient.set_start_pos(random_start_pos())
@@ -108,8 +110,10 @@ func set_ingredients(received_recipes: Array) -> void:
 		new_ingredient.name  = "lunch_%s" % Globals.lunch.get("ingredients")[i]
 		new_ingredient.set_ing_name(Globals.lunch.get("ingredients")[i])
 		new_ingredient.set_ing_id(i)
+
+		# Setting the sprite and scale
 		new_ingredient.set_sprite("%s" % Globals.lunch.get("ingredients")[i])
-		new_ingredient.scale = Vector2(0.15, 0.15)#new_ingredient.scale / new_ingredient.texture.get_size()
+		new_ingredient.scale = Vector2(0.15, 0.15)
 
 		# Generating a random starting position
 		new_ingredient.set_start_pos(random_start_pos())
@@ -126,6 +130,8 @@ func set_ingredients(received_recipes: Array) -> void:
 		new_ingredient.name  = "dinner_%s" % Globals.dinner.get("ingredients")[i]
 		new_ingredient.set_ing_name(Globals.dinner.get("ingredients")[i])
 		new_ingredient.set_ing_id(i)
+
+		# Setting the sprite and scale
 		new_ingredient.set_sprite("%s" % Globals.dinner.get("ingredients")[i])
 		new_ingredient.scale = Vector2(0.15, 0.15)
 
@@ -202,7 +208,6 @@ func success_check(ingredient, appliance) -> void:
 
 			# Incrementing what meal the player is cooking
 			_recipes_complete	   += 1
-			Globals.stat_multiplier = _recipes_complete / 3
 			_reset_list.clear()
 
 			# If all the recipes are completed then finish cooking
@@ -213,13 +218,13 @@ func success_check(ingredient, appliance) -> void:
 			match _recipes_complete:
 				1:
 					_curr_recipe	 = Globals.lunch
-					_meal_label.text = LUNCH_STR
+					_meal_label.text = LUNCH_STR + _curr_recipe.get("proper_name")
 				2:
 					_curr_recipe	 = Globals.dinner
-					_meal_label.text = DINNER_STR
+					_meal_label.text = DINNER_STR + _curr_recipe.get("proper_name")
 				_:
 					_curr_recipe	 = Globals.breakfast
-					_meal_label.text = BREAKFAST_STR
+					_meal_label.text = BREAKFAST_STR + _curr_recipe.get("proper_name")
 
 			# Setting the rest of the counter values and labels accordingly
 			_curr_order			 = 0
@@ -267,6 +272,16 @@ func end_cooking() -> void:
 	Globals.breakfast_ing_obj.clear()
 	Globals.lunch_ing_obj.clear()
 	Globals.dinner_ing_obj.clear()
+
+	# Calculating meal completion modifier
+	var completion_penalty = ((float(3) - _recipes_complete) / 3) * MAX_REDUCTION
+	print(_recipes_complete)
+	print(completion_penalty)
+
+	# Applying meal completion modifier
+	Globals.cur_health     = Globals.cur_health - completion_penalty
+	Globals.cur_energy     = Globals.cur_energy - completion_penalty
+	Globals.cur_happiness  = Globals.cur_happiness - completion_penalty
 
 	# Instantiating end scene
 	load("res://Scenes/IntermediaryScene.tscn").instantiate()
