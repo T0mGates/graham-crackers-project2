@@ -110,6 +110,7 @@ func set_sprite(sprite_image_name: String) -> void:
 
 	# File path for texture
 	var tex_path = "res://Assets/%s.png" % sprite_image_name
+	print("Name: %s" % sprite_image_name)
 
 	# If the file path exists then load it as a texture
 	if FileAccess.file_exists(tex_path):
@@ -117,7 +118,7 @@ func set_sprite(sprite_image_name: String) -> void:
 
 	# Use the default sprite if no file path exists
 	else:
-		tex.texture = load("res://icon.svg")
+		tex.texture = load("res://Assets/william_korean.png")
 
 	# Setting the collision shape to a rectangle shape
 	rect.size 		= tex.texture.get_size()

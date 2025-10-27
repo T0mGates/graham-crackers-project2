@@ -206,7 +206,7 @@
 			"orc_eats_scroll"
 		],
 		"directions":[
-			"Step 1: Activate the scroll with fire from all sides."
+			"Step 1: Activate the scroll with\nfire from all sides."
 		],
 		"cook_conditions":[
 			"OVENED"

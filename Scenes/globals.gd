@@ -20,9 +20,6 @@ var appliance_ref			   = null
 # Timer value
 var timer_time: float		   = 60.0
 
-# Multiplier value
-var stat_multiplier: float	   = 1.0
-
 
 
 # FOR RECIPE SELECT SCREEN
@@ -34,10 +31,10 @@ var cur_energy: int				= 70
 var cur_happiness: int 			= 70
 
 # FOR INTERMEDIARY SCENE
-var prev_money: int 				= 75
-var prev_health: int 				= 70
-var prev_energy: int				= 70
-var prev_happiness: int 			= 70
+var prev_money: int 			= 75
+var prev_health: int 			= 70
+var prev_energy: int			= 70
+var prev_happiness: int 		= 70
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

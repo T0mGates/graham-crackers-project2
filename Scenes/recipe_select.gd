@@ -223,9 +223,9 @@ func _start_new_day(	breakfast_options_param: Array,
 						day_text.text 		= "Day " + str(Globals.cur_day)
 						scenario_text.text 	= scenario_description
 						
-						eod_health_diff 	= eod_health_diff_param * max(0.2, Globals.stat_multiplier)
-						eod_energy_diff 	= eod_energy_diff_param * max(0.2, Globals.stat_multiplier)
-						eod_happiness_diff 	= eod_happiness_diff_param * max(0.2, Globals.stat_multiplier)
+						eod_health_diff 	= eod_health_diff_param
+						eod_energy_diff 	= eod_energy_diff_param
+						eod_happiness_diff 	= eod_happiness_diff_param
 	
 func on_recipe_btn_pressed(pressed_state: bool, btn_id: String):
 	print("%s toggled: %s" % [btn_id, pressed_state])

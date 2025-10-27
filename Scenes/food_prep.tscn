@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dog815jgb8elm" path="res://Scenes/food_prep.gd" id="1_7fvax"]
 [ext_resource type="Script" uid="uid://ttarcykcrck1" path="res://Scenes/toaster.gd" id="2_oqc0h"]
-[ext_resource type="Texture2D" uid="uid://c2jhxwllfqy6p" path="res://Assets/toaster_temp.png" id="3_7lkyw"]
+[ext_resource type="Texture2D" uid="uid://0o7mc8ahwcak" path="res://Assets/toaster.png" id="3_2f0d5"]
 [ext_resource type="Script" uid="uid://4anp30tp8osp" path="res://Scenes/stove.gd" id="4_7lkyw"]
-[ext_resource type="Texture2D" uid="uid://b88ivbl36ppgj" path="res://Assets/stove_temp.png" id="5_lht8r"]
+[ext_resource type="Texture2D" uid="uid://ceqx67iir142t" path="res://Assets/stove.png" id="5_3um7d"]
 [ext_resource type="Script" uid="uid://cv0hanpgt7ge5" path="res://Scenes/oven.gd" id="6_ywgo3"]
-[ext_resource type="Texture2D" uid="uid://cysjt0py7q3yn" path="res://Assets/oven_temp.png" id="7_vnyor"]
+[ext_resource type="Texture2D" uid="uid://dmmed7wjhmpal" path="res://Assets/oven.png" id="7_dwflw"]
 [ext_resource type="Script" uid="uid://dccis7koayty0" path="res://Scenes/bowl.gd" id="8_tb6s8"]
-[ext_resource type="Texture2D" uid="uid://mtwdiq63t217" path="res://Assets/bowl_temp.png" id="9_ogshp"]
+[ext_resource type="Texture2D" uid="uid://2f3id3f4iqw6" path="res://Assets/bowl.png" id="9_3k8ij"]
 [ext_resource type="Script" uid="uid://c8o7dt4i5t6fm" path="res://Scenes/knife.gd" id="9_t2uu6"]
-[ext_resource type="Texture2D" uid="uid://dgdupfdjcnrel" path="res://Assets/knife_temp.png" id="11_2f0d5"]
+[ext_resource type="Texture2D" uid="uid://c1jrmwh1oh8rw" path="res://Assets/knife.png" id="11_gj2eu"]
 [ext_resource type="Script" uid="uid://d2pkas78nhjqd" path="res://Scenes/cook_timer.gd" id="12_2f0d5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lht8r"]
@@ -48,7 +48,7 @@ shape = SubResource("RectangleShape2D_lht8r")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Toaster"]
-texture = ExtResource("3_7lkyw")
+texture = ExtResource("3_2f0d5")
 metadata/_edit_lock_ = true
 
 [node name="Stove" type="StaticBody2D" parent="." groups=["is_appliance"]]
@@ -61,7 +61,7 @@ shape = SubResource("RectangleShape2D_lht8r")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stove"]
-texture = ExtResource("5_lht8r")
+texture = ExtResource("5_3um7d")
 metadata/_edit_lock_ = true
 
 [node name="Oven" type="StaticBody2D" parent="." groups=["is_appliance"]]
@@ -74,7 +74,7 @@ shape = SubResource("RectangleShape2D_lht8r")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Oven"]
-texture = ExtResource("7_vnyor")
+texture = ExtResource("7_dwflw")
 metadata/_edit_lock_ = true
 
 [node name="Bowl" type="StaticBody2D" parent="." groups=["is_appliance"]]
@@ -87,7 +87,7 @@ shape = SubResource("RectangleShape2D_lht8r")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Bowl"]
-texture = ExtResource("9_ogshp")
+texture = ExtResource("9_3k8ij")
 metadata/_edit_lock_ = true
 
 [node name="Knife" type="StaticBody2D" parent="." groups=["is_appliance"]]
@@ -100,7 +100,7 @@ shape = SubResource("RectangleShape2D_lht8r")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Knife"]
-texture = ExtResource("11_2f0d5")
+texture = ExtResource("11_gj2eu")
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -134,18 +134,18 @@ label_settings = SubResource("LabelSettings_2f0d5")
 
 [node name="StepLabel" type="Label" parent="."]
 offset_left = 786.0
-offset_top = 158.0
+offset_top = 222.0
 offset_right = 1117.0
-offset_bottom = 200.0
+offset_bottom = 264.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Step 1:"
 label_settings = SubResource("LabelSettings_2f0d5")
 
 [node name="ResultLabel" type="Label" parent="."]
 offset_left = 787.0
-offset_top = 202.0
+offset_top = 272.0
 offset_right = 1118.0
-offset_bottom = 244.0
+offset_bottom = 314.0
 label_settings = SubResource("LabelSettings_2f0d5")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

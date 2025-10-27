@@ -3,7 +3,7 @@ extends Node2D
 @onready var day_text: Label 		= $DayText
 @onready var label: Label 		= $Label
 
-const END_SCENE_PATH: String = "res://Scenes/EndScene.tscn"
+const NEXT_SCENE_PATH: String = "res://Scenes/recipe_select.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,9 +46,9 @@ func _setup_text():
 	Globals.prev_happiness = Globals.cur_happiness
 
 func _on_pressed():
-	var end_scene = load(END_SCENE_PATH).instantiate()
+	var end_scene = load(NEXT_SCENE_PATH).instantiate()
 	# Changing to the food prep scene
-	get_tree().change_scene_to_file(END_SCENE_PATH)
+	get_tree().change_scene_to_file(NEXT_SCENE_PATH)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
