@@ -54,17 +54,10 @@ func end_day():
 		
 	for obj in dinner_options:
 		obj.queue_free()
-		
-	var recipe_book   	= Globals.get_json_from_file(RECIPE_BOOK_PATH)
 	
-	var breakfast_data  = recipe_book.get(get_chosen_breakfast_name())
-	var lunch_data 		= recipe_book.get(get_chosen_lunch_name())
-	var dinner_data 	= recipe_book.get(get_chosen_dinner_name())
-	
-	add_to_health(eod_health_diff + breakfast_data["health_diff"] + lunch_data["health_diff"] + dinner_data["health_diff"])
-	add_to_energy(eod_energy_diff + breakfast_data["energy_diff"] + lunch_data["energy_diff"] + dinner_data["energy_diff"])
-	add_to_happiness(eod_happiness_diff + breakfast_data["happiness_diff"] + lunch_data["happiness_diff"] + dinner_data["happiness_diff"])
-	add_to_money(-1 * (breakfast_data["cost"] + lunch_data["cost"] + dinner_data["cost"]))
+	add_to_health(eod_health_diff)
+	add_to_energy(eod_energy_diff)
+	add_to_happiness(eod_happiness_diff)
 	
 	update_ui()
 	
@@ -229,6 +222,11 @@ func _start_new_day(	breakfast_options_param: Array,
 	
 func on_recipe_btn_pressed(pressed_state: bool, btn_id: String):
 	print("%s toggled: %s" % [btn_id, pressed_state])
+	var recipe_book   	= Globals.get_json_from_file(RECIPE_BOOK_PATH)
+	
+	var old_breakfast	= null
+	var old_lunch 		= null
+	var old_dinner		= null
 	
 	# If it was set to true, make sure all others are false
 	if pressed_state:
@@ -239,17 +237,26 @@ func on_recipe_btn_pressed(pressed_state: bool, btn_id: String):
 		if "breakfast" in recipe_type:
 			for i in range(len(breakfast_options)):
 				if idx != i:
-					breakfast_options[i].get_btn_node().button_pressed = false
+					if breakfast_options[i].get_btn_node().button_pressed:
+						breakfast_options[i].get_btn_node().button_pressed = false
+						old_breakfast = breakfast_options[i]
+						break
 					
 		elif "lunch" in recipe_type:
 			for i in range(len(lunch_options)):
 				if idx != i:
-					lunch_options[i].get_btn_node().button_pressed = false
+					if lunch_options[i].get_btn_node().button_pressed:
+						lunch_options[i].get_btn_node().button_pressed = false
+						old_lunch = lunch_options[i]
+						break
 					
 		elif "dinner" in recipe_type:
 			for i in range(len(dinner_options)):
 				if idx != i:
-					dinner_options[i].get_btn_node().button_pressed = false
+					if dinner_options[i].get_btn_node().button_pressed:
+						dinner_options[i].get_btn_node().button_pressed = false
+						old_dinner = dinner_options[i]
+						break
 					
 		# If it was set to true, then look to see if we have chosen all of breakfast, lunch and dinner
 		# If we have, then we can enable the "go cooking" button, else we disable it
@@ -257,11 +264,53 @@ func on_recipe_btn_pressed(pressed_state: bool, btn_id: String):
 		var chosen_lunch 		= get_chosen_lunch_name()
 		var chosen_dinner 		= get_chosen_dinner_name()
 		
+		# Update resource for clicked type
+		if "breakfast" in recipe_type:
+			_update_resources_after_selection(recipe_book.get(old_breakfast) if null != old_breakfast else null, recipe_book.get(chosen_breakfast) if chosen_breakfast else null)
+			
+		elif "lunch" in recipe_type:
+			_update_resources_after_selection(recipe_book.get(old_lunch) if null != old_lunch else null, recipe_book.get(chosen_lunch) if chosen_lunch else null)
+			
+		elif "dinner" in recipe_type:
+			_update_resources_after_selection(recipe_book.get(old_dinner) if null != old_dinner else null, recipe_book.get(chosen_dinner) if chosen_dinner else null)
+		
 		ready_to_cook.get_node("TextureButton").set_meals(chosen_breakfast, chosen_lunch, chosen_dinner)
 		ready_to_cook.visible = chosen_breakfast and chosen_lunch and chosen_dinner
 	
 	else:
+		# In this case, need to give back the resources it was using
+		var recipe_type = btn_id.split(":")[0]
+		var idx 		= int(btn_id.split(":")[1])
+		var old_recipe  = null
+		
+		if "breakfast" in recipe_type:
+			old_recipe = breakfast_options[idx]
+					
+		elif "lunch" in recipe_type:
+			old_recipe = lunch_options[idx]
+					
+		elif "dinner" in recipe_type:
+			old_recipe = dinner_options[idx]
+			
+		_update_resources_after_selection(recipe_book.get(old_recipe.get_recipe_name()) if old_recipe != null else null, null)
 		ready_to_cook.visible = false
+		
+func _update_resources_after_selection(unselected_recipe, selected_recipe):
+	var recipe_book   	= Globals.get_json_from_file(RECIPE_BOOK_PATH)
+	
+	print("Updating resources. Unselected: %s, Selected: %s" % [unselected_recipe["proper_name"] if null != unselected_recipe else "N/A", selected_recipe["proper_name"] if null != selected_recipe else "N/A"])
+	
+	Globals.cur_health  	-= unselected_recipe["health_diff"] if null != unselected_recipe else 0
+	Globals.cur_energy  	-= unselected_recipe["energy_diff"] if null != unselected_recipe else 0
+	Globals.cur_happiness  	-= unselected_recipe["happiness_diff"] if null != unselected_recipe else 0
+	Globals.money  			+= unselected_recipe["cost"] if null != unselected_recipe else 0
+	
+	Globals.cur_health  	+= selected_recipe["health_diff"] if null != selected_recipe else 0
+	Globals.cur_energy  	+= selected_recipe["energy_diff"] if null != selected_recipe else 0
+	Globals.cur_happiness  	+= selected_recipe["happiness_diff"] if null != selected_recipe else 0
+	Globals.money  			-= selected_recipe["cost"] if null != selected_recipe else 0
+	
+	update_ui()
 		
 func get_chosen_breakfast_name() -> String:
 	var chosen_breakfast 	= ""
@@ -318,7 +367,7 @@ func add_to_money(diff: int):
 	print("In add_to_money with money: %d and diff: %d" % [Globals.money, diff])
 	
 	# Keep money above -1
-	Globals.money = max(Globals.money + diff, 0)
+	Globals.money += diff
 	update_ui()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

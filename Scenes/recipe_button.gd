@@ -1,9 +1,8 @@
 extends Node2D
 
-@onready var select_control: Control 	= $SelectControl
-@onready var recipe_label: Label 		= $SelectControl/RecipeName
-@onready var recipe_img: Sprite2D 		= $SelectControl/RecipeImg
-@onready var select_btn: CheckButton 	= $SelectControl/SelectBtn
+@onready var select_btn: Button 		= $SelectButton
+@onready var recipe_label: Label 		= $SelectButton/RecipeName
+@onready var recipe_img: Sprite2D 		= $SelectButton/RecipeImg
 
 const RECIPE_BOOK_PATH: String 			= "res://Scenes/recipes.json"
 
@@ -34,13 +33,15 @@ func setup(recipe_name_param: String, top: bool = false):
 	health_diff 		= recipe_data["health_diff"]
 	energy_diff 		= recipe_data["energy_diff"]
 	happiness_diff 		= recipe_data["happiness_diff"]
+	var num_steps 		= len(recipe_data["directions"])
+	var summary_text	= recipe_data["summary_text"]
 	
 	var recipe_img_texture = load(recipe_data["path_to_img"])
 	if recipe_img_texture:
 		recipe_img.texture = recipe_img_texture  
 	
-	select_control.set_info_text(money_diff, health_diff, energy_diff, happiness_diff)
-	select_control.set_hover_pos(top)
+	select_btn.set_info_text(money_diff, health_diff, energy_diff, happiness_diff, num_steps, summary_text)
+	select_btn.set_hover_pos(top)
 
 func get_btn_node()-> CheckButton:
 	return select_btn

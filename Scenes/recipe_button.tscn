@@ -1,42 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cabaak67as4g7"]
+[gd_scene load_steps=6 format=3 uid="uid://cabaak67as4g7"]
 
 [ext_resource type="Script" uid="uid://llkal57nf7jl" path="res://Scenes/recipe_button.gd" id="1_0x8w7"]
 [ext_resource type="Script" uid="uid://bm2l4ymxk7efv" path="res://Scenes/select_control.gd" id="2_o2d84"]
 [ext_resource type="Texture2D" uid="uid://dmpxfi5qjxrxc" path="res://icon.svg" id="3_4w71g"]
 [ext_resource type="Texture2D" uid="uid://duvbx180gtvhv" path="res://Assets/bar_bg_texture.png" id="4_w0vfv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0vfv"]
+bg_color = Color(0.6751326, 0.6751319, 0, 1)
+
 [node name="RecipeButton" type="Node2D"]
 script = ExtResource("1_0x8w7")
 
-[node name="SelectControl" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="SelectButton" type="Button" parent="."]
 offset_right = 140.0
-offset_bottom = 85.0
+offset_bottom = 95.0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w0vfv")
+toggle_mode = true
 script = ExtResource("2_o2d84")
 
-[node name="SelectBtn" type="CheckButton" parent="SelectControl"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -36.0
-offset_top = -10.0
-offset_right = 8.0
-offset_bottom = 14.0
-grow_horizontal = 0
-grow_vertical = 0
-rotation = -1.5707964
-theme_override_colors/button_checked_color = Color(0, 0.8862745, 0.22352941, 1)
-
-[node name="RecipeName" type="Label" parent="SelectControl"]
+[node name="RecipeName" type="Label" parent="SelectButton"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.13333334
+anchor_top = -0.08235294
 anchor_right = 1.0
-anchor_bottom = 0.8666667
+anchor_bottom = 0.8666666
 offset_top = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
@@ -45,35 +32,69 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -5
 theme_override_font_sizes/font_size = 12
 text = "Some Recipe Name Hahaha"
+horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="RecipeImg" type="Sprite2D" parent="SelectControl"]
-position = Vector2(50.1, 57.100006)
+[node name="RecipeImg" type="Sprite2D" parent="SelectButton"]
+position = Vector2(70, 55)
 scale = Vector2(0.12343748, 0.12343748)
 texture = ExtResource("3_4w71g")
 
 [node name="InfoText" type="Node2D" parent="."]
-position = Vector2(0, 58)
+position = Vector2(-12, 58)
 
-[node name="Sprite2D" type="Sprite2D" parent="InfoText"]
+[node name="StatsBG" type="Sprite2D" parent="InfoText"]
 z_index = 1
 position = Vector2(15.633025, 40)
-scale = Vector2(0.20631343, 0.10428572)
+scale = Vector2(0.20631343, 0.1168)
 texture = ExtResource("4_w0vfv")
 offset = Vector2(335.205, 341.525)
 
-[node name="Label" type="Label" parent="InfoText"]
+[node name="RecipeStatsTxt" type="Label" parent="InfoText"]
 z_index = 2
 offset_left = 16.0
-offset_top = 40.0
+offset_top = 41.0
 offset_right = 156.0
-offset_bottom = 115.0
+offset_bottom = 111.0
+scale = Vector2(1, 1.12)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -3
 theme_override_font_sizes/font_size = 10
 text = "This is some stuff that'll happen"
+vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="mouse_entered" from="SelectControl" to="SelectControl" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="SelectControl" to="SelectControl" method="_on_mouse_exited"]
+[node name="SummaryBG" type="Sprite2D" parent="InfoText"]
+z_index = 1
+position = Vector2(163, 40)
+scale = Vector2(0.20631343, 0.1168)
+texture = ExtResource("4_w0vfv")
+offset = Vector2(335.205, 341.525)
+
+[node name="SummaryTxt" type="Label" parent="InfoText"]
+z_index = 2
+offset_left = 163.0
+offset_top = 41.0
+offset_right = 303.0
+offset_bottom = 111.0
+scale = Vector2(1, 1.12)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 10
+text = "This is some summary!"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DividerSprite" type="Sprite2D" parent="InfoText"]
+modulate = Color(1, 0, 0, 1)
+z_index = 1
+position = Vector2(160.00267, 40.00198)
+rotation = -3.1415925
+scale = Vector2(0.005159275, -0.116809405)
+texture = ExtResource("4_w0vfv")
+offset = Vector2(335.205, 341.525)
+
+[connection signal="mouse_entered" from="SelectButton" to="SelectButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SelectButton" to="SelectButton" method="_on_mouse_exited"]

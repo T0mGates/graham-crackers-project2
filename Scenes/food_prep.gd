@@ -61,7 +61,7 @@ func _ready() -> void:
 
 	# Setting the labels
 	_meal_label.text  = BREAKFAST_STR + _curr_recipe.get("proper_name")
-	_step_label.text  = _curr_recipe.get("directions")[0]
+	_step_label.text  = _curr_recipe.get("directions")[0] if len(_curr_recipe.get("directions")) > 0 else "Skipped meal, shouldn't see this"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

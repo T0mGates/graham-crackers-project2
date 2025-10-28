@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgybpvsfp57pd"]
+[gd_scene load_steps=14 format=3 uid="uid://cgybpvsfp57pd"]
 
 [ext_resource type="Script" uid="uid://btwqk52b1jtc" path="res://Scenes/recipe_select.gd" id="1_lblv1"]
 [ext_resource type="Texture2D" uid="uid://duvbx180gtvhv" path="res://Assets/bar_bg_texture.png" id="2_vqio6"]
@@ -10,20 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://chrx2y6nmn2jg" path="res://Assets/happiness_bar_texture.png" id="6_kwimk"]
 [ext_resource type="Texture2D" uid="uid://c3sckx8xn2ap3" path="res://Assets/dinner.png" id="6_v4md5"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1ixs"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwimk"]
 texture = ExtResource("2_vqio6")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mx0q3"]
 texture = ExtResource("4_vqio6")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwimk"]
-texture = ExtResource("2_vqio6")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4md5"]
 texture = ExtResource("5_f1ixs")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_slobb"]
-texture = ExtResource("2_vqio6")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_meq50"]
 texture = ExtResource("6_kwimk")
@@ -148,8 +142,9 @@ text = "Lunch"
 
 [node name="TextureRect" type="TextureRect" parent="MainUI/RecipeOptions/Lunch"]
 offset_left = 1.0
+offset_top = -12.0
 offset_right = 199.0
-offset_bottom = 57.0
+offset_bottom = 45.0
 texture = ExtResource("5_mx0q3")
 expand_mode = 1
 
@@ -220,25 +215,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = 1.9999999
+offset_bottom = 1.9999999
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
-
-[node name="ProgressBar" type="ProgressBar" parent="MainUI/Resources/Health"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 16.600008
-offset_top = -35.52498
-offset_right = 21.300005
-offset_bottom = -3.7999992
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxTexture_f1ixs")
-theme_override_styles/fill = SubResource("StyleBoxTexture_mx0q3")
-value = 20.0
-fill_mode = 3
-show_percentage = false
 
 [node name="Label" type="Label" parent="MainUI/Resources/Health"]
 layout_mode = 1
@@ -257,6 +238,22 @@ theme_override_font_sizes/font_size = 25
 text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MainUI/Resources/Health"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.999916
+offset_top = -36.0
+offset_right = 22.799934
+offset_bottom = -3.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxTexture_kwimk")
+theme_override_styles/fill = SubResource("StyleBoxTexture_mx0q3")
+value = 24.07
+fill_mode = 3
+show_percentage = false
 
 [node name="Energy" type="Control" parent="MainUI/Resources"]
 layout_mode = 1
@@ -277,13 +274,13 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 17.999916
-offset_top = -35.60012
+offset_top = -36.0
 offset_right = 22.799934
-offset_bottom = -3.199997
+offset_bottom = -3.0
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxTexture_kwimk")
 theme_override_styles/fill = SubResource("StyleBoxTexture_v4md5")
-value = 20.0
+value = 24.07
 fill_mode = 3
 show_percentage = false
 
@@ -314,22 +311,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
 
-[node name="ProgressBar" type="ProgressBar" parent="MainUI/Resources/Happiness"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 20.000008
-offset_top = -35.600018
-offset_right = 24.80001
-offset_bottom = -3.199997
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxTexture_slobb")
-theme_override_styles/fill = SubResource("StyleBoxTexture_meq50")
-value = 20.0
-fill_mode = 3
-show_percentage = false
-
 [node name="Label" type="Label" parent="MainUI/Resources/Happiness"]
 layout_mode = 0
 offset_left = 18.400024
@@ -343,5 +324,21 @@ theme_override_font_sizes/font_size = 25
 text = "Happiness"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MainUI/Resources/Happiness"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.999916
+offset_top = -36.0
+offset_right = 22.799934
+offset_bottom = -3.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxTexture_kwimk")
+theme_override_styles/fill = SubResource("StyleBoxTexture_meq50")
+value = 24.07
+fill_mode = 3
+show_percentage = false
 
 [connection signal="pressed" from="MainUI/ReadyToCook/TextureButton" to="MainUI/ReadyToCook/TextureButton" method="_on_pressed"]

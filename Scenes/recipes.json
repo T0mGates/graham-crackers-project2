@@ -17,10 +17,11 @@
 		],
 		"path_to_img": "res://Assets/bacon_eggs_toast.png",
 		"proper_name": "Bacon Eggs & Toast",
+		"summary_text": "Test",
 		"cost": 3,
 		"health_diff": 0,
 		"energy_diff": 5,
-		"happiness_diff": 5
+		"happiness_diff": 5,
 	},
 	"pancakes": {
 		"ingredients":[
@@ -40,6 +41,7 @@
 		],
 		"path_to_img": "res://Assets/pancakes.png",
 		"proper_name": "Pancakes",
+		"summary_text": "Test",
 		"cost": 1,
 		"health_diff": -10,
 		"energy_diff": 10,
@@ -69,6 +71,7 @@
 		],
 		"path_to_img": "res://Assets/breakfast_wrap.png",
 		"proper_name": "Breakfast Wrap",
+		"summary_text": "Test",
 		"cost": 5,
 		"health_diff": 5,
 		"energy_diff": 10,
@@ -98,6 +101,7 @@
 		],
 		"path_to_img": "res://Assets/bacon_cheeseburger.png",
 		"proper_name": "Bacon Chesseburger",
+		"summary_text": "Test",
 		"cost": 6,
 		"health_diff": 0,
 		"energy_diff": 10,
@@ -127,6 +131,7 @@
 		],
 		"path_to_img": "res://Assets/salad.png",
 		"proper_name": "Salad",
+		"summary_text": "Test",
 		"cost": 7,
 		"health_diff": 10,
 		"energy_diff": 10,
@@ -153,6 +158,7 @@
 		],
 		"path_to_img": "res://Assets/sandwich.png",
 		"proper_name": "Sandwich",
+		"summary_text": "Test",
 		"cost": 3,
 		"health_diff": -5,
 		"energy_diff": 5,
@@ -176,6 +182,7 @@
 		],
 		"path_to_img": "res://Assets/steak_frites.png",
 		"proper_name": "Steak Frites",
+		"summary_text": "Test",
 		"cost": 10,
 		"health_diff": 10,
 		"energy_diff": 10,
@@ -196,6 +203,7 @@
 		],
 		"path_to_img": "res://Assets/raw_myan.png",
 		"proper_name": "Raw Myan",
+		"summary_text": "Test",
 		"cost": 2,
 		"health_diff": -10,
 		"energy_diff": 5,
@@ -213,9 +221,25 @@
 		],
 		"path_to_img": "res://Assets/orc_eats_scroll.png",
 		"proper_name": "Orc Eats Scroll",
+		"summary_text": "Test",
 		"cost": 30,
 		"health_diff": 20,
 		"energy_diff": 30,
 		"happiness_diff": 15
+	},
+	"skip": {
+		"ingredients":[
+		],
+		"directions":[
+		],
+		"cook_conditions":[
+		],
+		"path_to_img": "res://Assets/skip.png",
+		"proper_name": "Skip this Meal",
+		"summary_text": "Skipping is bad.",
+		"cost": 0,
+		"health_diff": -10,
+		"energy_diff": -10,
+		"happiness_diff": -10
 	}
 }
