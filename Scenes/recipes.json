@@ -17,9 +17,9 @@
 		],
 		"path_to_img": "res://Assets/bacon_eggs_toast.png",
 		"proper_name": "Bacon Eggs & Toast",
-		"summary_text": "Test",
+		"summary_text": "A classic meal with decent benefits.",
 		"cost": 3,
-		"health_diff": 0,
+		"health_diff": 2,
 		"energy_diff": 5,
 		"happiness_diff": 5,
 	},
@@ -41,7 +41,7 @@
 		],
 		"path_to_img": "res://Assets/pancakes.png",
 		"proper_name": "Pancakes",
-		"summary_text": "Test",
+		"summary_text": "Cheap, hearty, and delicious. Perfect.",
 		"cost": 1,
 		"health_diff": -10,
 		"energy_diff": 10,
@@ -59,19 +59,19 @@
 			"Step 1: Fry the egg.",
 			"Step 2: Fry the cheese.",
 			"Step 3: Fry the bacon.",
-			"Step 4: Warm the tortilla.",
+			"Step 4: Warm the tortilla in covered heat.",
 			"Step 5: Make mayonnaise sauce in bowl."
 		],
 		"cook_conditions":[
 			"STOVED",
 			"STOVED",
 			"STOVED",
-			"STOVED",
+			"OVENED",
 			"BOWL"
 		],
 		"path_to_img": "res://Assets/breakfast_wrap.png",
 		"proper_name": "Breakfast Wrap",
-		"summary_text": "Test",
+		"summary_text": "A little pricey, but worth every penny.",
 		"cost": 5,
 		"health_diff": 5,
 		"energy_diff": 10,
@@ -90,7 +90,7 @@
 			"Step 2: Crisp the cheese.",
 			"Step 3: Bake the bread.",
 			"Step 4: Fry the bacon.",
-			"Step 5: Make the sauce."
+			"Step 5: Make the mayonnaise sauce."
 		],
 		"cook_conditions":[
 			"STOVED",
@@ -100,12 +100,12 @@
 			"BOWL"
 		],
 		"path_to_img": "res://Assets/bacon_cheeseburger.png",
-		"proper_name": "Bacon Chesseburger",
-		"summary_text": "Test",
+		"proper_name": "Bacon Cheeseburger",
+		"summary_text": "Not as healthy, but oh so good.",
 		"cost": 6,
-		"health_diff": 0,
+		"health_diff": -5,
 		"energy_diff": 10,
-		"happiness_diff": 5
+		"happiness_diff": 7
 	},
 	"salad": {
 		"ingredients":[
@@ -118,23 +118,23 @@
 		"directions":[
 			"Step 1: Place lettuce in bowl.",
 			"Step 2: Chop the tomato.",
-			"Step 3: Bake the meat.",
+			"Step 3: Sear the meat.",
 			"Step 4: Place dressing in bowl.",
 			"Step 5: Chop the carrots."
 		],
 		"cook_conditions":[
 			"BOWL",
 			"CHOPPED",
-			"OVENED",
+			"STOVED",
 			"BOWL",
 			"CHOPPED"
 		],
 		"path_to_img": "res://Assets/salad.png",
 		"proper_name": "Salad",
-		"summary_text": "Test",
-		"cost": 7,
+		"summary_text": "A dietary dream. An enjoyment nightmare.",
+		"cost": 5,
 		"health_diff": 10,
-		"energy_diff": 10,
+		"energy_diff": 5,
 		"happiness_diff": -5
 	},
 	"sandwich": {
@@ -146,7 +146,7 @@
 		],
 		"directions":[
 			"Step 1: Toast the bread.",
-			"Step 2: Place the meat in the bowl.",
+			"Step 2: Place the processed meat in the bowl.",
 			"Step 3: Cut the cheese.",
 			"Step 4: Drizzle the mayonnaise."
 		],
@@ -158,9 +158,9 @@
 		],
 		"path_to_img": "res://Assets/sandwich.png",
 		"proper_name": "Sandwich",
-		"summary_text": "Test",
+		"summary_text": "It's the go-to lunch meal for a reason.",
 		"cost": 3,
-		"health_diff": -5,
+		"health_diff": 0,
 		"energy_diff": 5,
 		"happiness_diff": 5
 	},
@@ -182,7 +182,7 @@
 		],
 		"path_to_img": "res://Assets/steak_frites.png",
 		"proper_name": "Steak Frites",
-		"summary_text": "Test",
+		"summary_text": "An expensive meal that has it all.",
 		"cost": 10,
 		"health_diff": 10,
 		"energy_diff": 10,
@@ -203,7 +203,7 @@
 		],
 		"path_to_img": "res://Assets/raw_myan.png",
 		"proper_name": "Raw Myan",
-		"summary_text": "Test",
+		"summary_text": "Cheap and fast in a pinch, not as healthy.",
 		"cost": 2,
 		"health_diff": -10,
 		"energy_diff": 5,
@@ -221,10 +221,10 @@
 		],
 		"path_to_img": "res://Assets/orc_eats_scroll.png",
 		"proper_name": "Orc Eats Scroll",
-		"summary_text": "Test",
+		"summary_text": "Quick and good food at your beckon.",
 		"cost": 30,
-		"health_diff": 20,
-		"energy_diff": 30,
+		"health_diff": 15,
+		"energy_diff": 20,
 		"happiness_diff": 15
 	},
 	"skip": {
@@ -236,10 +236,10 @@
 		],
 		"path_to_img": "res://Assets/skip.png",
 		"proper_name": "Skip This Meal",
-		"summary_text": "Skipping is bad.",
+		"summary_text": "It costs nothing to be miserable.",
 		"cost": 0,
-		"health_diff": -10,
-		"energy_diff": -10,
-		"happiness_diff": -10
+		"health_diff": -20,
+		"energy_diff": -20,
+		"happiness_diff": -20
 	}
 }
