@@ -69,6 +69,10 @@ func _process(_delta: float) -> void:
 	# Making sure the timer is always displayed properly
 	_timer_label.set_text(str(int(round(_timer.get_time_left()))))
 
+	# Checking if we should skip the meal
+	if _curr_recipe.get("proper_name") == "Skip This Meal":
+		next_recipe()
+
 # Called by the previous scene to set the starting data
 func set_ingredients(received_recipes: Array) -> void:
 	print(received_recipes)
@@ -176,6 +180,39 @@ func random_start_pos() -> Vector2:
 
 	return rand_coord
 
+# Called to move on to the next recipe
+func next_recipe() -> void:
+
+	# Incrementing what meal the player is cooking
+	_recipes_complete	   += 1
+	_reset_list.clear()
+
+	# If all the recipes are completed then finish cooking
+	if _recipes_complete >= 3:
+		end_cooking()
+
+	# Checking to see what meal to cook next
+	match _recipes_complete:
+		1:
+			_curr_recipe	 = Globals.lunch
+			_meal_label.text = LUNCH_STR + _curr_recipe.get("proper_name")
+		2:
+			_curr_recipe	 = Globals.dinner
+			_meal_label.text = DINNER_STR + _curr_recipe.get("proper_name")
+		_:
+			_curr_recipe	 = Globals.breakfast
+			_meal_label.text = BREAKFAST_STR + _curr_recipe.get("proper_name")
+
+	# Setting the rest of the counter values and labels accordingly
+	_curr_order			 = 0
+	_max_order			 = _curr_recipe.get("ingredients").size()
+	_complete_label.text = MEALS_STR + "%s/3" % _recipes_complete
+
+	# Setting the step label
+	if !_curr_recipe.get("directions").size() == 0:
+		_step_label.text   = _curr_recipe.get("directions")[_curr_order]
+		_result_label.text = ""
+
 # Called on a signal to check if the ingredient is being used correctly
 func success_check(ingredient, appliance) -> void:
 
@@ -205,35 +242,12 @@ func success_check(ingredient, appliance) -> void:
 
 		# If the meal is complete then move on to the next one
 		if _curr_order == _max_order:
-
-			# Incrementing what meal the player is cooking
-			_recipes_complete	   += 1
-			_reset_list.clear()
-
-			# If all the recipes are completed then finish cooking
-			if _recipes_complete >= 3:
-				end_cooking()
-
-			# Checking to see what meal to cook next
-			match _recipes_complete:
-				1:
-					_curr_recipe	 = Globals.lunch
-					_meal_label.text = LUNCH_STR + _curr_recipe.get("proper_name")
-				2:
-					_curr_recipe	 = Globals.dinner
-					_meal_label.text = DINNER_STR + _curr_recipe.get("proper_name")
-				_:
-					_curr_recipe	 = Globals.breakfast
-					_meal_label.text = BREAKFAST_STR + _curr_recipe.get("proper_name")
-
-			# Setting the rest of the counter values and labels accordingly
-			_curr_order			 = 0
-			_max_order			 = _curr_recipe.get("ingredients").size()
-			_complete_label.text = MEALS_STR + "%s/3" % _recipes_complete
+			next_recipe()
 
 		# Setting the rest of the labels
-		_step_label.text   = _curr_recipe.get("directions")[_curr_order]
-		_result_label.text = ""
+		if !_curr_recipe.get("directions").size() == 0:
+			_step_label.text   = _curr_recipe.get("directions")[_curr_order]
+			_result_label.text = ""	
 
 	# If it was not a success and the ingredient was not checked yet then reset the meal
 	if not ingredient.is_checked:

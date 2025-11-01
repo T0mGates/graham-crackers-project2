@@ -73,7 +73,7 @@ func _process(_delta: float) -> void:
 	# If the ingredient is picked up then move it by its calculated offset
 	if picked_up and picked_up_name == self.name:
 		self.global_position = get_global_mouse_position() - self._movement_offset
-		print(self.global_position)
+		#self.global_position = _movement_offset
 
 	# If the ingredient is dropped on the appliance check if it is correct
 	if appliance_ref != null and not picked_up:
@@ -127,16 +127,26 @@ func set_sprite(sprite_image_name: String) -> void:
 # This function triggers if the mouse hovers an ingredient
 func _on_mouse_entered() -> void:
 
-	# Setting the scale large to indicate hovering
-	picked_up_name = self.name
-	self.scale = self.scale + Vector2(0.05, 0.05)
+	# We only want to do starting pickup changes if the item is not picked up
+	if not picked_up:
+
+		# Setting the scale large to indicate hovering
+		picked_up_name = self.name
+		self.scale	   = self.scale + Vector2(0.05, 0.05)
 
 # This function triggers if the mouse stops hovering an ingredient
 func _on_mouse_exited() -> void:
 
-	# Setting the scale smaller to indicate no longer hovering
-	picked_up_name = ""
-	self.scale = self.scale - Vector2(0.05, 0.05)
+	# If we haven't dropped the item yet then amend this
+	if picked_up:
+		self.global_position = get_global_mouse_position() - self._movement_offset
+
+	# We only want to do the dropped item operations if we have actually dropped it
+	else:
+
+		# Setting the scale smaller to indicate no longer hovering
+		picked_up_name = ""
+		self.scale     = self.scale - Vector2(0.05, 0.05)
 
 # This function triggers if an ingredient touches an appliance
 func _on_body_entered(body: Node2D) -> void:
