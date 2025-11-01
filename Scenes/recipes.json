@@ -235,7 +235,7 @@
 		"cook_conditions":[
 		],
 		"path_to_img": "res://Assets/skip.png",
-		"proper_name": "Skip this Meal",
+		"proper_name": "Skip This Meal",
 		"summary_text": "Skipping is bad.",
 		"cost": 0,
 		"health_diff": -10,
