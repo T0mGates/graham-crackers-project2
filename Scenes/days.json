@@ -24,7 +24,7 @@
 			"breakfast_options": ["bacon_eggs_toast", "pancakes", "breakfast_wrap", "salad"],
 			"lunch_options": ["bacon_cheeseburger", "salad", "sandwich", "orc_eats_scroll"],
 			"dinner_options": ["steak_frites", "bacon_cheeseburger", "sandwich", "orc_eats_scroll"],
-			"scenario_description": "Ahh day 3, it's often said that the best things come in threes, but unfortunately that doesn't apply here. Its final boss time, and between you and your goal lies The Lord of Profound Suffering (with a name like that he never had a chance). Expect a curb stomping that will level upon you health and energy debts that your descendants will be paying off for generations. Prepare.",
+			"scenario_description": "It's said that the best things come in threes, but that doesn't apply here. Its final boss time, and between you and your goal lies The Lord of Profound Suffering (with a name like that you don't have a chance). Expect a curb stomping that will level your health and energy debts that your descendants will be paying off for generations. Prepare.",
 			"eod_health_diff": -40,
 			"eod_energy_diff": -30,
 			"eod_happiness_diff": -5
