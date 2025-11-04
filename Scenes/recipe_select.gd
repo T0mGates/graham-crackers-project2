@@ -170,6 +170,7 @@ func _start_new_day(	breakfast_options_param: Array,
 						# BREAKFAST
 						var pos_to_set				= breakfast_node.position
 						var num_loops				= 0
+						Globals.curr_meal			= "Breakfast"
 						
 						for breakfast_option in breakfast_options_param:
 							var recipe_option_btn 		= recipe_btn_scene.instantiate()
@@ -178,7 +179,11 @@ func _start_new_day(	breakfast_options_param: Array,
 							
 							breakfast_options.append(recipe_option_btn)
 							
-							recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
+							if breakfast_option == "skip":
+								recipe_option_btn.position 	= pos_to_set + Vector2(150 * 2.1, -35)
+								recipe_option_btn.scale		= recipe_option_btn.scale * 0.8
+							else:
+								recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
 							
 							recipe_option_btn.setup(breakfast_option, false)
 							
@@ -187,6 +192,7 @@ func _start_new_day(	breakfast_options_param: Array,
 						# LUNCH
 						pos_to_set				= lunch_node.position
 						num_loops				= 0
+						Globals.curr_meal		= "Lunch"
 						
 						for lunch_option in lunch_options_param:
 							var recipe_option_btn 		= recipe_btn_scene.instantiate()
@@ -195,7 +201,11 @@ func _start_new_day(	breakfast_options_param: Array,
 							
 							lunch_options.append(recipe_option_btn)
 							
-							recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
+							if lunch_option == "skip":
+								recipe_option_btn.position 	= pos_to_set + Vector2(150 * 2.1, -35)
+								recipe_option_btn.scale		= recipe_option_btn.scale * 0.8
+							else:
+								recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
 							
 							recipe_option_btn.setup(lunch_option, false)
 							
@@ -204,6 +214,7 @@ func _start_new_day(	breakfast_options_param: Array,
 						# DINNER
 						pos_to_set				= dinner_node.position
 						num_loops				= 0
+						Globals.curr_meal		= "Dinner"
 						
 						for dinner_option in dinner_options_param:
 							var recipe_option_btn 		= recipe_btn_scene.instantiate()
@@ -212,7 +223,11 @@ func _start_new_day(	breakfast_options_param: Array,
 							
 							dinner_options.append(recipe_option_btn)
 							
-							recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
+							if dinner_option == "skip":
+								recipe_option_btn.position 	= pos_to_set + Vector2(150 * 2.1, -35)
+								recipe_option_btn.scale		= recipe_option_btn.scale * 0.8
+							else:
+								recipe_option_btn.position 	= pos_to_set + Vector2(150 * num_loops, 50)
 							
 							recipe_option_btn.setup(dinner_option, true)
 							

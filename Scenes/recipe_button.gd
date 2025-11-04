@@ -26,8 +26,11 @@ func setup(recipe_name_param: String, top: bool = false):
 	recipe_name 		= recipe_name_param
 	var recipe_book   	= Globals.get_json_from_file(RECIPE_BOOK_PATH)
 	var recipe_data  	= recipe_book.get(recipe_name_param)
-						
-	recipe_label.text 	= recipe_data["proper_name"]
+
+	if recipe_name_param == "skip":
+		recipe_label.text = "Skip %s" % Globals.curr_meal
+	else:
+		recipe_label.text = recipe_data["proper_name"]
 	
 	money_diff 			= recipe_data["cost"]
 	health_diff 		= recipe_data["health_diff"]
