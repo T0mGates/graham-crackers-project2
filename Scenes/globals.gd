@@ -20,6 +20,9 @@ var appliance_ref			   = null
 # Timer value
 var timer_time: float		   = 60.0
 
+# Current meal being set up
+var curr_meal: String		   = "Breakfast"
+
 
 
 # FOR RECIPE SELECT SCREEN
