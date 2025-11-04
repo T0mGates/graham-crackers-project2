@@ -341,4 +341,16 @@ value = 24.07
 fill_mode = 3
 show_percentage = false
 
+[node name="FinalLabel" type="Label" parent="MainUI"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 131.0
+offset_right = 1085.0
+offset_bottom = 407.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.015686275, 0.015686275, 0.015686275, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="MainUI/ReadyToCook/TextureButton" to="MainUI/ReadyToCook/TextureButton" method="_on_pressed"]

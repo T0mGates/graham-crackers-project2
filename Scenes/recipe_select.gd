@@ -1,17 +1,20 @@
 extends Node2D
 
-@onready var scenario_text: Label 	= $MainUI/ScenarioText
-@onready var day_text: Label 		= $MainUI/DayText
+@onready var scenario_text: Label 		= $MainUI/ScenarioText
+@onready var day_text: Label 			= $MainUI/DayText
+@onready var final_text: Label			= $MainUI/FinalLabel
 
 
-@onready var health_bar 	= $MainUI/Resources/Health/ProgressBar
-@onready var energy_bar 	= $MainUI/Resources/Energy/ProgressBar
-@onready var happiness_bar 	= $MainUI/Resources/Happiness/ProgressBar
-@onready var money_label 	= $MainUI/Resources/Money/Label
+@onready var health_bar 				= $MainUI/Resources/Health/ProgressBar
+@onready var energy_bar 				= $MainUI/Resources/Energy/ProgressBar
+@onready var happiness_bar 				= $MainUI/Resources/Happiness/ProgressBar
+@onready var money_label 				= $MainUI/Resources/Money/Label
 
 @onready var breakfast_node: Node2D 	= $MainUI/RecipeOptions/Breakfast
 @onready var lunch_node: Node2D 		= $MainUI/RecipeOptions/Lunch
 @onready var dinner_node: Node2D 		= $MainUI/RecipeOptions/Dinner
+
+@onready var recipe_options				= $MainUI/RecipeOptions
 
 @onready var ready_to_cook: Node2D 		= $MainUI/ReadyToCook
 
@@ -64,8 +67,10 @@ func end_day():
 func end_game(win: bool, end_name: String, info: String):
 	print("You won: %s" % [str(win)])
 	day_text.text 			= "You got the '"+end_name+"' ending"
-	scenario_text.text 		= info
+	scenario_text.text		= ""
+	final_text.text 		= info
 	ready_to_cook.visible 	= false
+	recipe_options.visible  = false
 	update_ui()
 
 func update_ui():
@@ -117,7 +122,7 @@ func setup_new_day():
 					day_data["eod_energy_diff"],
 					day_data["eod_happiness_diff"]
 				)
-				
+
 func check_if_game_over():
 	# Look for lose conditions
 	# For now just print, but we maybe want a game over screen?

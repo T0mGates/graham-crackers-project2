@@ -1,27 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw3u8x04p75fh"]
+[gd_scene load_steps=5 format=3 uid="uid://bw3u8x04p75fh"]
 
 [ext_resource type="Script" uid="uid://ccnt77vl5a3y0" path="res://Scenes/intermediary_scene.gd" id="1_edvvb"]
+[ext_resource type="Texture2D" uid="uid://duvbx180gtvhv" path="res://Assets/bar_bg_texture.png" id="2_nokth"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_edvvb"]
+font_size = 30
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nokth"]
+font_size = 24
 
 [node name="IntermediaryScene" type="Node2D"]
 script = ExtResource("1_edvvb")
 
-[node name="DayText" type="Label" parent="."]
-offset_left = 363.0
-offset_top = 3.0
-offset_right = 517.0
-offset_bottom = 39.0
+[node name="Background" type="Polygon2D" parent="."]
+z_index = -2
+position = Vector2(-33.565434, -11.605367)
+scale = Vector2(1.0271604, 1.0410185)
+color = Color(0.3640838, 0.36408398, 0.36408392, 1)
+polygon = PackedVector2Array(-4, 2, -16, 673, 1199, 670, 1188, -22, 0, -34)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 59.0
-offset_top = 65.0
-offset_right = 1058.0
-offset_bottom = 487.0
+[node name="Polygon2D" type="Polygon2D" parent="Background"]
+position = Vector2(39, 40.995865)
+scale = Vector2(1, 0.9985202)
+color = Color(0.57700837, 0.5770084, 0.57700837, 1)
+polygon = PackedVector2Array(13.14904, 479.9793, 0, 601.8948, 210.78125, 575.2194, 348.0529, 591.5738, 486.2981, 574.2574, 585.601, 596.38385, 748.3558, 595.59937, 807.57214, 582.9156, 898.11304, 596.38385, 1096, 581.0957, 1083, 201.76077, 1102, -19.105263, 924.3991, -22.195839, 747.2116, -12.575626, 581.7068, -27.005945, 385.0481, -6.8034973, 238.04088, -22.195839, 4.3870225, -10.651583, 12.175484, 147.11992, 7.307696, 302.00537)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 964.0
-offset_top = 538.0
-offset_right = 1151.0
-offset_bottom = 645.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_top = 13.0
+offset_right = 1155.0
+offset_bottom = 644.0
+
+[node name="DayContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DayText" type="Label" parent="VBoxContainer/DayContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_edvvb")
+
+[node name="LabelContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/LabelContainer"]
+custom_minimum_size = Vector2(1000, 50)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_nokth")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture_normal = ExtResource("2_nokth")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.79607844, 0.98039216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "OK"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="Button" to="." method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonContainer/TextureButton" to="." method="_on_pressed"]
