@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var day_text: Label 		= $VBoxContainer/DayContainer/DayText
-@onready var label:    Label 		= $VBoxContainer/LabelContainer/Label
+@onready var day_text: Label = $VBoxContainer/DayContainer/DayText
+@onready var label: Label = $VBoxContainer/LabelContainer/Label
 
-const NEXT_SCENE_PATH: String 		= "res://Scenes/recipe_select.tscn"
+const NEXT_SCENE_PATH: String = "res://Scenes/recipe_select.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,38 +11,37 @@ func _ready() -> void:
 
 func _setup_text():
 	day_text.text = "Day " + str(Globals.cur_day) + " Results"
-	
-	var delta_money     	 = Globals.prev_money - Globals.money
-	var delta_health    	 = Globals.prev_health - Globals.cur_health
-	var delta_energy    	 = Globals.prev_energy - Globals.cur_energy
-	var delta_happiness 	 = Globals.prev_happiness - Globals.cur_happiness
-	
-	print("previous money: " + str(Globals.prev_money))
-	print("current money: "  + str(Globals.money))
-	print("delta money: "    + str(delta_money))
+
+	var delta_money = Globals.prev_money - Globals.money
+	var delta_health = Globals.prev_health - Globals.cur_health
+	var delta_energy = Globals.prev_energy - Globals.cur_energy
+	var delta_happiness = Globals.prev_happiness - Globals.cur_happiness
 	
 	if (delta_money >= 30):
 		label.text = label.text + "You spent a lot of money today!\n"
-	if (delta_health <= 10):
+	if (delta_health < 10):
 		label.text = label.text + "You gained a lot of health today!\n"
-	if (delta_energy <= 10):
+	if (delta_energy < 10):
 		label.text = label.text + "You gained a lot of energy today!\n"
-	if (delta_happiness <= 10):
+	if (delta_happiness < 10):
 		label.text = label.text + "You gained a lot of happiness today!\n"
 	if (Globals.cur_day == 1):
 		if (Globals.cur_health <= 50):
 			label.text = label.text + "That swim was a lot more tiring than you thought and you felt sick afterwards\n"
-	if (Globals.cur_day == 2): 
+	if (Globals.cur_day == 2):
 		if (Globals.cur_energy <= 50):
 			label.text = label.text + "During your fight against Old Orc Oliver you found it harder and harder to keep up, you didn't have enough energy and were getting tired, and one slow step later, you took a massive hit to the chest from his club, and your chestplate was shattered. Thankfully, you made it out of the fight alive, but now you'll need to get new gear when you leave the dungeon.\n"
 	if (Globals.cur_day == 3):
 		if (Globals.cur_health <= 50 || Globals.cur_energy <= 50):
 			label.text = label.text + "The lord of profound suffering was indeed suffering, with low health and energy you found it difficult to fight like you usually do, and the fight ended up being a lot harder than it should have been for a skilled adventurer like you"
+	
+	if (label.text == ''):
+		label.text = "The day passes"
 		
 	#setup prev values for next day
-	Globals.prev_money     = Globals.money
-	Globals.prev_health    = Globals.cur_health
-	Globals.prev_energy    = Globals.cur_energy
+	Globals.prev_money = Globals.money
+	Globals.prev_health = Globals.cur_health
+	Globals.prev_energy = Globals.cur_energy
 	Globals.prev_happiness = Globals.cur_happiness
 
 func _on_pressed():
