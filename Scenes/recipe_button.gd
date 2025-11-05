@@ -3,6 +3,8 @@ extends Node2D
 @onready var select_btn: Button 		= $SelectButton
 @onready var recipe_label: Label 		= $SelectButton/RecipeName
 @onready var recipe_img: Sprite2D 		= $SelectButton/RecipeImg
+@onready var info_text: Node2D 			= $InfoText
+
 
 const RECIPE_BOOK_PATH: String 			= "res://Scenes/recipes.json"
 
@@ -48,6 +50,9 @@ func setup(recipe_name_param: String, top: bool = false):
 
 func get_btn_node()-> CheckButton:
 	return select_btn
+	
+func get_info_text_node()-> Node2D:
+	return info_text
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

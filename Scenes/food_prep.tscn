@@ -29,6 +29,7 @@ font_color = Color(0.9999972, 0.11506521, 0.15264365, 1)
 outline_size = 2
 
 [node name="FoodPrepScene" type="Node2D"]
+scale = Vector2(1.6399999, 1.6399999)
 script = ExtResource("1_7fvax")
 
 [node name="Background" type="Polygon2D" parent="."]

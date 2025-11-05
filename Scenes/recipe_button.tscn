@@ -1,12 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cabaak67as4g7"]
 
 [ext_resource type="Script" uid="uid://llkal57nf7jl" path="res://Scenes/recipe_button.gd" id="1_0x8w7"]
+[ext_resource type="StyleBox" uid="uid://bml20i4dnx0rc" path="res://Scenes/btn_select_style.tres" id="2_gnawg"]
 [ext_resource type="Script" uid="uid://bm2l4ymxk7efv" path="res://Scenes/select_control.gd" id="2_o2d84"]
 [ext_resource type="Texture2D" uid="uid://dmpxfi5qjxrxc" path="res://icon.svg" id="3_4w71g"]
 [ext_resource type="Texture2D" uid="uid://duvbx180gtvhv" path="res://Assets/bar_bg_texture.png" id="4_w0vfv"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0vfv"]
-bg_color = Color(0.6751326, 0.6751319, 0, 1)
 
 [node name="RecipeButton" type="Node2D"]
 script = ExtResource("1_0x8w7")
@@ -14,7 +12,7 @@ script = ExtResource("1_0x8w7")
 [node name="SelectButton" type="Button" parent="."]
 offset_right = 140.0
 offset_bottom = 95.0
-theme_override_styles/pressed = SubResource("StyleBoxFlat_w0vfv")
+theme_override_styles/pressed = ExtResource("2_gnawg")
 toggle_mode = true
 script = ExtResource("2_o2d84")
 

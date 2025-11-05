@@ -234,7 +234,7 @@ func success_check(ingredient, appliance) -> void:
 
 		# Moving the ingredient off screen and marking it checked
 		ingredient.is_checked	   = true
-		ingredient.global_position = Vector2(1000, 1000)
+		ingredient.global_position = Vector2(3000, 3000)
 		_reset_list.append(ingredient)
 
 		# Iterating counter

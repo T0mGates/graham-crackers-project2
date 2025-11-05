@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 @onready var recipe_select_scene: Node2D = $"../../.."
 

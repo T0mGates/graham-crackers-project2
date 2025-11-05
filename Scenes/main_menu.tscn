@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://uddvv8hwgs35" path="res://Assets/SNS_title.png" id="8_yhxw7"]
 
 [node name="Main Menu" type="Node2D"]
+scale = Vector2(1.6399999, 1.6399999)
 script = ExtResource("1_28flt")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -41,6 +42,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Options" type="TextureButton" parent="Buttons_All"]
+visible = false
 layout_mode = 0
 offset_left = 678.0
 offset_top = 357.0

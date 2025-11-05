@@ -132,7 +132,7 @@ func _on_mouse_entered() -> void:
 
 		# Setting the scale large to indicate hovering
 		picked_up_name = self.name
-		self.scale	   = self.scale + Vector2(0.05, 0.05)
+		self.scale	   = self.scale + Vector2(0.03, 0.03)
 
 # This function triggers if the mouse stops hovering an ingredient
 func _on_mouse_exited() -> void:
@@ -146,7 +146,7 @@ func _on_mouse_exited() -> void:
 
 		# Setting the scale smaller to indicate no longer hovering
 		picked_up_name = ""
-		self.scale     = self.scale - Vector2(0.05, 0.05)
+		self.scale     = self.scale - Vector2(0.03, 0.03)
 
 # This function triggers if an ingredient touches an appliance
 func _on_body_entered(body: Node2D) -> void:

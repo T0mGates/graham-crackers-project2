@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw3u8x04p75fh"]
 
 [ext_resource type="Script" uid="uid://ccnt77vl5a3y0" path="res://Scenes/intermediary_scene.gd" id="1_edvvb"]
-[ext_resource type="Texture2D" uid="uid://duvbx180gtvhv" path="res://Assets/bar_bg_texture.png" id="2_nokth"]
+[ext_resource type="StyleBox" uid="uid://bml20i4dnx0rc" path="res://Scenes/btn_select_style.tres" id="2_nokth"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_edvvb"]
 font_size = 30
@@ -12,6 +12,7 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 24
 
 [node name="IntermediaryScene" type="Node2D"]
+scale = Vector2(1.6400002, 1.6400002)
 script = ExtResource("1_edvvb")
 
 [node name="Background" type="Polygon2D" parent="."]
@@ -55,12 +56,10 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/ButtonContainer"]
+[node name="TextureButton" type="Button" parent="VBoxContainer/ButtonContainer"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-texture_normal = ExtResource("2_nokth")
-ignore_texture_size = true
-stretch_mode = 0
+theme_override_styles/hover = ExtResource("2_nokth")
 
 [node name="Label" type="Label" parent="VBoxContainer/ButtonContainer"]
 layout_mode = 2

@@ -77,7 +77,7 @@ func update_ui():
 	health_bar.value = Globals.cur_health
 	energy_bar.value = Globals.cur_energy
 	happiness_bar.value = Globals.cur_happiness
-	money_label.text = "Money: " + str(Globals.money)
+	money_label.text = "Money: $" + str(Globals.money)
 	
 func setup_new_day():
 	print("IN READY")
@@ -145,7 +145,7 @@ func check_if_game_over():
 			end_game(false, "Indebted", "On top of your student debt, now you have lunch debt. An issue experienced by tardy bar patrons, American school children, and now you!")
 			return true
 		elif health_loss:
-			end_game(false, "Whispy Husk", "No no no you cant just eat whatever you want! A balanced diet of fruits, vegetables, grains, dairy, and proteins are required for healthy living. To learn more please go to www.williamdual.itch.io/gardenians.")
+			end_game(false, "Whispy Husk", "No no no you can't just eat whatever you want! A balanced diet of fruits, vegetables, grains, dairy, and proteins are required for healthy living. To learn more please go to www.williamdual.itch.io/gardenians.")
 			return true
 		elif energy_loss:
 			end_game(false, "Eepy", "While I commend you for not relying on energy drinks or coffee, I will say that you should probably put some more pep in your step.")
@@ -186,6 +186,7 @@ func _start_new_day(breakfast_options_param: Array,
 							if breakfast_option == "skip":
 								recipe_option_btn.position = pos_to_set + Vector2(150 * 2.1, -35)
 								recipe_option_btn.scale = recipe_option_btn.scale * 0.8
+								recipe_option_btn.get_info_text_node().scale = recipe_option_btn.get_info_text_node().scale * 1.2
 							else:
 								recipe_option_btn.position = pos_to_set + Vector2(150 * num_loops, 50)
 							
@@ -208,6 +209,7 @@ func _start_new_day(breakfast_options_param: Array,
 							if lunch_option == "skip":
 								recipe_option_btn.position = pos_to_set + Vector2(150 * 2.1, -35)
 								recipe_option_btn.scale = recipe_option_btn.scale * 0.8
+								recipe_option_btn.get_info_text_node().scale = recipe_option_btn.get_info_text_node().scale * 1.2
 							else:
 								recipe_option_btn.position = pos_to_set + Vector2(150 * num_loops, 50)
 							
@@ -230,6 +232,7 @@ func _start_new_day(breakfast_options_param: Array,
 							if dinner_option == "skip":
 								recipe_option_btn.position = pos_to_set + Vector2(150 * 2.1, -35)
 								recipe_option_btn.scale = recipe_option_btn.scale * 0.8
+								recipe_option_btn.get_info_text_node().scale = recipe_option_btn.get_info_text_node().scale * 1.2
 							else:
 								recipe_option_btn.position = pos_to_set + Vector2(150 * num_loops, 50)
 							

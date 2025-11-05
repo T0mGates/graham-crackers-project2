@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func set_info_text(money_diff: int, health_diff: int, energy_diff: int, happiness_diff: int, num_steps: int, summary_txt: String):
-	info_text.get_node("RecipeStatsTxt").text 	= "Money: " + str(money_diff) + "\nHealth: " + str(health_diff) + "\nEnergy: " + str(energy_diff) + "\nHappiness: " + str(happiness_diff) + "\n# of Steps: " + str(num_steps)
+	info_text.get_node("RecipeStatsTxt").text 	= "Costs: $" + str(money_diff) + "\nHealth: " + str(health_diff) + "\nEnergy: " + str(energy_diff) + "\nHappiness: " + str(happiness_diff) + "\n# of Steps: " + str(num_steps)
 	info_text.get_node("SummaryTxt").text 		= summary_txt
 
 # Used for hover text to appear on top instead of under a recipe

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgybpvsfp57pd"]
+[gd_scene load_steps=15 format=3 uid="uid://cgybpvsfp57pd"]
 
 [ext_resource type="Script" uid="uid://btwqk52b1jtc" path="res://Scenes/recipe_select.gd" id="1_lblv1"]
+[ext_resource type="StyleBox" uid="uid://bml20i4dnx0rc" path="res://Scenes/btn_select_style.tres" id="2_v4md5"]
 [ext_resource type="Texture2D" uid="uid://duvbx180gtvhv" path="res://Assets/bar_bg_texture.png" id="2_vqio6"]
 [ext_resource type="Script" uid="uid://q7kw7t1yw52" path="res://Scenes/ready_to_cook.gd" id="2_xira4"]
 [ext_resource type="Texture2D" uid="uid://non5ex7ufycn" path="res://Assets/breakfast.png" id="4_f1ixs"]
@@ -23,6 +24,7 @@ texture = ExtResource("5_f1ixs")
 texture = ExtResource("6_kwimk")
 
 [node name="RecipeSelectScene" type="Node2D"]
+scale = Vector2(1.6399994, 1.6399994)
 script = ExtResource("1_lblv1")
 
 [node name="Background" type="Polygon2D" parent="."]
@@ -83,14 +85,12 @@ autowrap_mode = 2
 [node name="ReadyToCook" type="Node2D" parent="MainUI"]
 position = Vector2(899, 540)
 
-[node name="TextureButton" type="TextureButton" parent="MainUI/ReadyToCook"]
+[node name="TextureButton" type="Button" parent="MainUI/ReadyToCook"]
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 224.0
 offset_bottom = 89.0
-texture_normal = ExtResource("2_vqio6")
-ignore_texture_size = true
-stretch_mode = 0
+theme_override_styles/hover = ExtResource("2_v4md5")
 script = ExtResource("2_xira4")
 
 [node name="Label" type="Label" parent="MainUI/ReadyToCook/TextureButton"]
