@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bllhmuj87ef7d"]
+[gd_scene load_steps=9 format=3 uid="uid://bllhmuj87ef7d"]
 
 [ext_resource type="Script" uid="uid://cxj5rotrpm5gi" path="res://main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://csjhbegychu37" path="res://Assets/start_game.png" id="2_cp0ys"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://qo1y4eo8hj2u" path="res://Assets/options2.png" id="5_16hvj"]
 [ext_resource type="Texture2D" uid="uid://cg7efnvq8nyo5" path="res://Assets/quit_game.png" id="6_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://csbvqao6k8r70" path="res://Assets/quit_game2.png" id="7_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://uddvv8hwgs35" path="res://Assets/SNS_title.png" id="8_yhxw7"]
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource("1_28flt")
@@ -60,6 +61,11 @@ texture_normal = ExtResource("6_vr1f0")
 texture_pressed = ExtResource("7_t1dhk")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(379, 233)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_yhxw7")
 
 [connection signal="pressed" from="Buttons_All/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons_All/Options" to="." method="_on_options_pressed"]

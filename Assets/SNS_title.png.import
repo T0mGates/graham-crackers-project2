@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y8k58y7o7ej3"
-path="res://.godot/imported/walter_white.jpg-ade17b9bc575a180f7c0a0c333a0cedf.ctex"
+uid="uid://uddvv8hwgs35"
+path="res://.godot/imported/SNS_title.png-efaad222f5177123f7e5f6a717a89ce2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/walter_white.jpg"
-dest_files=["res://.godot/imported/walter_white.jpg-ade17b9bc575a180f7c0a0c333a0cedf.ctex"]
+source_file="res://Assets/SNS_title.png"
+dest_files=["res://.godot/imported/SNS_title.png-efaad222f5177123f7e5f6a717a89ce2.ctex"]
 
 [params]
 
