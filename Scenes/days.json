@@ -1,32 +1,83 @@
 {
-	"1":
-		{
-			"breakfast_options": ["bacon_eggs_toast", "pancakes", "breakfast_wrap", "sandwich", "skip"],
-			"lunch_options": ["bacon_cheeseburger", "salad", "sandwich", "raw_myan", "skip"],
-			"dinner_options": ["steak_frites", "salad", "sandwich", "orc_eats_scroll", "skip"],
-			"scenario_description": "First day in the dungeon! All of your ingredients and appliances are packed, no starving for this feller! From previous expeditions you've heard that your first 8 hours will involve a quick swim through the pool of excruciating pain! Expect a good amount of physical injury, exhaustion, and a bit of melancholy.",
-			"eod_health_diff": -20,
-			"eod_energy_diff": -25,
-			"eod_happiness_diff": -10
-		},
-	"2":
-		{
-			"breakfast_options": ["bacon_eggs_toast", "pancakes", "breakfast_wrap", "raw_myan", "skip"],
-			"lunch_options": ["bacon_cheeseburger", "salad", "sandwich", "raw_myan", "skip"],
-			"dinner_options": ["steak_frites", "bacon_cheeseburger", "raw_myan", "orc_eats_scroll", "skip"],
-			"scenario_description": "Your second day! Today's agenda notably includes a battle with Old Orc Oliver. He used to be the scourge of the dungeon, the final boss everyone dreaded. But now he kinda just throws himself at you, it's a bit sad really, he never fully bounced back after that knee injury. Expect a large energy and happiness penalty.",
-			"eod_health_diff": 0,
-			"eod_energy_diff": -40,
-			"eod_happiness_diff": -20
-		},
-	"3":
-		{
-			"breakfast_options": ["bacon_eggs_toast", "pancakes", "breakfast_wrap", "salad", "skip"],
-			"lunch_options": ["bacon_cheeseburger", "salad", "sandwich", "orc_eats_scroll", "skip"],
-			"dinner_options": ["steak_frites", "bacon_cheeseburger", "sandwich", "orc_eats_scroll", "skip"],
-			"scenario_description": "It's said that the best things come in threes, but that doesn't apply here. Its final boss time, and between you and your goal lies The Lord of Profound Suffering (with a name like that you don't have a chance). Expect a curb stomping that will level your health and energy debts that your descendants will be paying off for generations. Prepare.",
-			"eod_health_diff": -40,
-			"eod_energy_diff": -30,
-			"eod_happiness_diff": -5
-		}
+	"1": {
+		"breakfast_options": [
+			"bacon_eggs_toast",
+			"pancakes",
+			"breakfast_wrap",
+			"sandwich",
+			"skip"
+		],
+		"lunch_options": [
+			"bacon_cheeseburger",
+			"salad",
+			"sandwich",
+			"raw_myan",
+			"skip"
+		],
+		"dinner_options": [
+			"steak_frites",
+			"salad",
+			"sandwich",
+			"orc_eats_scroll",
+			"skip"
+		],
+		"scenario_description": "First day in the dungeon! All of your ingredients and appliances are packed, no starving for this feller! From previous expeditions you've heard that your first 8 hours will involve a quick swim through the pool of excruciating pain! Expect a good amount of physical injury, and a bit of melancholy.",
+		"eod_health_diff": -30,
+		"eod_energy_diff": 0,
+		"eod_happiness_diff": -10
+	},
+	"2": {
+		"breakfast_options": [
+			"bacon_eggs_toast",
+			"pancakes",
+			"breakfast_wrap",
+			"raw_myan",
+			"skip"
+		],
+		"lunch_options": [
+			"bacon_cheeseburger",
+			"salad",
+			"sandwich",
+			"raw_myan",
+			"skip"
+		],
+		"dinner_options": [
+			"steak_frites",
+			"bacon_cheeseburger",
+			"raw_myan",
+			"orc_eats_scroll",
+			"skip"
+		],
+		"scenario_description": "Your second day! Today's agenda notably includes a battle with Old Orc Oliver. He used to be the scourge of the dungeon, the final boss everyone dreaded. But now he kinda just throws himself at you, it's a bit sad really, he never fully bounced back after that knee injury. Expect a large energy and happiness penalty.",
+		"eod_health_diff": 0,
+		"eod_energy_diff": -40,
+		"eod_happiness_diff": -20
+	},
+	"3": {
+		"breakfast_options": [
+			"bacon_eggs_toast",
+			"pancakes",
+			"breakfast_wrap",
+			"salad",
+			"skip"
+		],
+		"lunch_options": [
+			"bacon_cheeseburger",
+			"salad",
+			"sandwich",
+			"orc_eats_scroll",
+			"skip"
+		],
+		"dinner_options": [
+			"steak_frites",
+			"bacon_cheeseburger",
+			"sandwich",
+			"orc_eats_scroll",
+			"skip"
+		],
+		"scenario_description": "It's said that the best things come in threes, but that doesn't apply here. Its final boss time, and between you and your goal lies The Lord of Profound Suffering (with a name like that you don't have a chance). Expect a curb stomping that will level upon you health and energy debts that your descendants will be paying off for generations. Prepare.",
+		"eod_health_diff": -40,
+		"eod_energy_diff": -30,
+		"eod_happiness_diff": -10
+	}
 }

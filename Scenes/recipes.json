@@ -1,16 +1,16 @@
 {
 	"bacon_eggs_toast": {
-		"ingredients":[
+		"ingredients": [
 			"bacon",
 			"egg",
 			"bread"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Fry the bacon.",
 			"Step 2: Fry the egg.",
 			"Step 3: Toast the bread."
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"STOVED",
 			"STOVED",
 			"TOASTED"
@@ -21,20 +21,20 @@
 		"cost": 3,
 		"health_diff": 2,
 		"energy_diff": 5,
-		"happiness_diff": 5,
+		"happiness_diff": 5
 	},
 	"pancakes": {
-		"ingredients":[
+		"ingredients": [
 			"flour",
 			"egg",
 			"milk"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Place flour in bowl.",
 			"Step 2: Place egg in bowl.",
 			"Step 3: Place milk in bowl."
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"BOWL",
 			"BOWL",
 			"BOWL"
@@ -48,21 +48,21 @@
 		"happiness_diff": 10
 	},
 	"breakfast_wrap": {
-		"ingredients":[
+		"ingredients": [
 			"egg",
 			"cheese",
 			"bacon",
 			"tortilla",
 			"mayonnaise"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Fry the egg.",
 			"Step 2: Fry the cheese.",
 			"Step 3: Fry the bacon.",
 			"Step 4: Warm the tortilla in covered heat.",
 			"Step 5: Make mayonnaise sauce in bowl."
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"STOVED",
 			"STOVED",
 			"STOVED",
@@ -78,21 +78,21 @@
 		"happiness_diff": 5
 	},
 	"bacon_cheeseburger": {
-		"ingredients":[
+		"ingredients": [
 			"processed_meat",
 			"cheese",
 			"bread",
 			"bacon",
 			"mayonnaise"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Fry the patty.",
 			"Step 2: Crisp the cheese.",
 			"Step 3: Bake the bread.",
 			"Step 4: Fry the bacon.",
 			"Step 5: Make the mayonnaise sauce."
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"STOVED",
 			"STOVED",
 			"OVENED",
@@ -108,21 +108,21 @@
 		"happiness_diff": 7
 	},
 	"salad": {
-		"ingredients":[
+		"ingredients": [
 			"lettuce",
 			"tomato",
 			"quality_meat",
 			"dressing",
 			"carrots"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Place lettuce in bowl.",
 			"Step 2: Chop the tomato.",
 			"Step 3: Sear the quality meat.",
 			"Step 4: Place dressing in bowl.",
 			"Step 5: Chop the carrots."
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"BOWL",
 			"CHOPPED",
 			"STOVED",
@@ -138,19 +138,19 @@
 		"happiness_diff": -5
 	},
 	"sandwich": {
-		"ingredients":[
+		"ingredients": [
 			"bread",
 			"processed_meat",
 			"cheese",
 			"mayonnaise"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Toast the bread.",
 			"Step 2: Place the processed meat in the bowl.",
 			"Step 3: Cut the cheese.",
-			"Step 4: Drizzle the mayonnaise."
+			"Step 4: Drizzle the mayonnaise into the bowl."
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"TOASTED",
 			"BOWL",
 			"CHOPPED",
@@ -165,17 +165,17 @@
 		"happiness_diff": 5
 	},
 	"steak_frites": {
-		"ingredients":[
+		"ingredients": [
 			"quality_meat",
 			"potatos",
 			"carrots"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Sear the quality meat.",
 			"Step 2: Chop the potatos.",
 			"Step 3: Cut the carrots."
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"STOVED",
 			"CHOPPED",
 			"CHOPPED"
@@ -189,15 +189,15 @@
 		"happiness_diff": 10
 	},
 	"raw_myan": {
-		"ingredients":[
+		"ingredients": [
 			"raw_myan_bundle",
 			"egg"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Boil the Myan.",
 			"Step 2: Add in the egg to the bowl"
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"STOVED",
 			"BOWL"
 		],
@@ -210,13 +210,13 @@
 		"happiness_diff": 0
 	},
 	"orc_eats_scroll": {
-		"ingredients":[
+		"ingredients": [
 			"orc_eats_scroll"
 		],
-		"directions":[
+		"directions": [
 			"Step 1: Activate the scroll with fire from all sides."
 		],
-		"cook_conditions":[
+		"cook_conditions": [
 			"OVENED"
 		],
 		"path_to_img": "res://Assets/orc_eats_scroll.png",
@@ -228,12 +228,9 @@
 		"happiness_diff": 15
 	},
 	"skip": {
-		"ingredients":[
-		],
-		"directions":[
-		],
-		"cook_conditions":[
-		],
+		"ingredients": [],
+		"directions": [],
+		"cook_conditions": [],
 		"path_to_img": "res://Assets/skip.png",
 		"proper_name": "Skip This Meal",
 		"summary_text": "It costs nothing to be miserable.",
